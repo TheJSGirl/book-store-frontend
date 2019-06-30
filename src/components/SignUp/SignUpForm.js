@@ -13,17 +13,19 @@ class SignUpForm extends Component {
             email:"",
             password:"",
             passwordConfirmation: "",
-            timezone: ""
+            timezone: "",
+            errors: {}
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
     }
 
     handleSubmit(e) {
-        e.preventDefault()
-        this.props.userSignupRequest(this.state);
-        // axios.post('http://localhost:3000/users/signUp',this.state).then(data => console
-        //     .log(data))
+        this.setState({errors: {}});
+        e.preventDefault();
+        this.props.userSignupRequest(this.state)
+        .then(() => {}, 
+        ({data}) => this.setState({errors: data}))
     }
 
     onChange(e) {
@@ -34,6 +36,8 @@ class SignUpForm extends Component {
         const options = map(timezone, (val, key) => 
             <option key={val} value={val}>{key}</option>
         )
+
+        const {errors} = this.state;
         return(
             <form onSubmit={this.handleSubmit}>
                 <h1>Join our community</h1>
@@ -46,6 +50,7 @@ class SignUpForm extends Component {
                         value={this.state.username}
                         onChange = {this.onChange}
                     />
+                    {errors.username && <span>{errors.username}</span>}
                 </div>
                 <div>
                     <label className="control-label">Email</label>
@@ -56,6 +61,7 @@ class SignUpForm extends Component {
                         value={this.state.email}
                         onChange = {this.onChange}
                     />
+                    {errors.email && <span>{errors.email}</span>}
                 </div>
                 <div>
                     <label className="control-label">Password</label>
@@ -66,6 +72,9 @@ class SignUpForm extends Component {
                         value={this.state.password}
                         onChange = {this.onChange}
                     />
+                    {errors.password
+                         && <span>{errors.password
+                    }</span>}
                 </div>
                 <div>
                     <label className="control-label">Confirm Password</label>
@@ -76,6 +85,7 @@ class SignUpForm extends Component {
                         value={this.state.passwordConfirmation}
                         onChange = {this.onChange}
                     />
+                    {errors.passwordConfirmation && <span>{errors.passwordConfirmation}</span>}
                 </div>
                 <div>
                     <label className="control-label"> TimeZone</label>
@@ -89,6 +99,7 @@ class SignUpForm extends Component {
                         <option value="" disabled>Choose your timezone </option>
                         {options}
                     </select>
+                    {errors.timezone && <span>{errors.timezone}</span>}
                 </div>
                 <div className="form-group">
                     <button className="btn btn-primary btn-lg">
