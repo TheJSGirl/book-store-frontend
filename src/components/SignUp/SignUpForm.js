@@ -21,8 +21,9 @@ class SignUpForm extends Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        axios.post('http://localhost:3000/users/signUp',this.state).then(data => console
-            .log(data))
+        this.props.userSignupRequest(this.state);
+        // axios.post('http://localhost:3000/users/signUp',this.state).then(data => console
+        //     .log(data))
     }
 
     onChange(e) {
