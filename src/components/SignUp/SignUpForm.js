@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import timezone from '../../data/timezone';
 import map from 'lodash/map';
+import axios from 'axios';
+
 
 class SignUpForm extends Component {
 
@@ -19,7 +21,8 @@ class SignUpForm extends Component {
 
     handleSubmit(e) {
         e.preventDefault()
-        console.log(this.state)
+        axios.post('http://localhost:3000/users/signUp',this.state).then(data => console
+            .log(data))
     }
 
     onChange(e) {
