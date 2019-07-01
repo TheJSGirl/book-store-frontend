@@ -40,7 +40,7 @@ class SignUpForm extends Component {
         const {errors} = this.state;
         return(
             <form onSubmit={this.handleSubmit}>
-                <h1>Join our community</h1>
+                <h1>SignUp</h1>
                 <div>
                     <label className="control-label">Username</label>
                     <input
