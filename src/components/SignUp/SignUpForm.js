@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import timezone from '../../data/timezone';
 import map from 'lodash/map';
-import axios from 'axios';
+
 
 
 class SignUpForm extends Component {

@@ -1,5 +1,7 @@
 import React, {Component}from 'react';
 import LoginForm from './LoginForm';
+import {connect} from 'react-redux';
+import {login} from '../../actions/loginActions';
 
 class LoginPage extends Component {
 
@@ -7,7 +9,7 @@ class LoginPage extends Component {
     return (
         <div className="row">
             <div className="col-md-4 col-md-offset-4">
-                <LoginForm />
+                <LoginForm login={login} />
             </div>
 
         </div>
@@ -15,4 +17,4 @@ class LoginPage extends Component {
    }
 }
 
-export default LoginPage;
+export default connect(null, {login})(LoginPage);
