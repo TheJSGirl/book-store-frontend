@@ -6,10 +6,11 @@ import {login} from '../../actions/loginActions';
 class LoginPage extends Component {
 
    render() {
+       const {login} = this.props;
     return (
         <div className="row">
             <div className="col-md-4 col-md-offset-4">
-                <LoginForm login={login} />
+                <LoginForm loginProp={login} />
             </div>
 
         </div>

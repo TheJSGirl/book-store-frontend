@@ -26,6 +26,7 @@ class SignUpForm extends Component {
         this.props.userSignupRequest(this.state)
         .then(() => {}, 
         ({data}) => this.setState({errors: data}))
+        this.setState({ username: '', email: '', password:'', passwordConfirmation:'', timezone:''})
     }
 
     onChange(e) {
@@ -50,7 +51,7 @@ class SignUpForm extends Component {
                         value={this.state.username}
                         onChange = {this.onChange}
                     />
-                    {errors.username && <span>{errors.username}</span>}
+                    {errors && errors.username && <span>{errors.username}</span>}
                 </div>
                 <div>
                     <label className="control-label">Email</label>
@@ -61,7 +62,7 @@ class SignUpForm extends Component {
                         value={this.state.email}
                         onChange = {this.onChange}
                     />
-                    {errors.email && <span>{errors.email}</span>}
+                    { errors && errors.email && <span>{errors.email}</span>}
                 </div>
                 <div>
                     <label className="control-label">Password</label>
@@ -72,7 +73,7 @@ class SignUpForm extends Component {
                         value={this.state.password}
                         onChange = {this.onChange}
                     />
-                    {errors.password
+                    {errors && errors.password
                          && <span>{errors.password
                     }</span>}
                 </div>
@@ -85,7 +86,7 @@ class SignUpForm extends Component {
                         value={this.state.passwordConfirmation}
                         onChange = {this.onChange}
                     />
-                    {errors.passwordConfirmation && <span>{errors.passwordConfirmation}</span>}
+                    {errors && errors.passwordConfirmation && <span>{errors.passwordConfirmation}</span>}
                 </div>
                 <div>
                     <label className="control-label"> TimeZone</label>
@@ -99,7 +100,7 @@ class SignUpForm extends Component {
                         <option value="" disabled>Choose your timezone </option>
                         {options}
                     </select>
-                    {errors.timezone && <span>{errors.timezone}</span>}
+                    {errors && errors.timezone && <span>{errors.timezone}</span>}
                 </div>
                 <div className="form-group">
                     <button className="btn btn-primary btn-lg">

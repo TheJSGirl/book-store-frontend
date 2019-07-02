@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Redirect} from 'react-router-dom';
 
 class LoginForm extends Component {
 
@@ -7,15 +8,16 @@ class LoginForm extends Component {
         this.state = {
             username:"",
             password:"",
+            redirect: false
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
     }
 
     handleSubmit(e) {
-        e.preventDefault()
-        this.props.login(this.state).then(
-            (res) => this.context.router.push('/')
+        e.preventDefault();
+        this.props.loginProp(this.state).then(
+            (res) => this.setState({ redirect: true })
         )    
     }
 
@@ -24,8 +26,11 @@ class LoginForm extends Component {
     }
 
     render() {
+        if(this.state.redirect) {
+            return <Redirect to="/" />
+        }
         return(
-            <form onSubmit={this.handleSubmit}>
+            <form>
                 <h1>Login</h1>
                 <div>
                     <label className="control-label">Username</label>
@@ -49,7 +54,7 @@ class LoginForm extends Component {
                 </div>
                 
                 <div className="form-group">
-                    <button className="btn btn-primary btn-lg">
+                    <button className="btn btn-primary btn-lg"  onClick={this.handleSubmit}>
                          Login
                     </button>
                 </div>
