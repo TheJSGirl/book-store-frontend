@@ -6,10 +6,20 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
+import setAuthorization from './utils';
+import rootReducer from './rootReducer';
+import jwt from 'jsonwebtoken';
+import {authAction} from './actions/authActions';
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore((state={}) => state,composeEnhancer(applyMiddleware(reduxThunk)));
+const store = createStore(rootReducer,composeEnhancer(applyMiddleware(reduxThunk)));
+
+if(localStorage.jwtToken) {
+    setAuthorization(localStorage.jwtToken);
+    store.dispatch(authAction(jwt.decode(localStorage.jwtToken)));
+}
+
 ReactDOM.render(
 <Provider store={store}>
     <App />

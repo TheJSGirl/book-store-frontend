@@ -2,15 +2,16 @@ import React, {Component}from 'react';
 import LoginForm from './LoginForm';
 import {connect} from 'react-redux';
 import {login} from '../../actions/loginActions';
+import {authAction} from '../../actions/authActions';
 
 class LoginPage extends Component {
 
    render() {
-       const {login} = this.props;
+       const {login, authAction } = this.props;
     return (
         <div className="row">
             <div className="col-md-4 col-md-offset-4">
-                <LoginForm loginProp={login} />
+                <LoginForm loginProp={login} authAction={authAction} />
             </div>
 
         </div>
@@ -18,4 +19,4 @@ class LoginPage extends Component {
    }
 }
 
-export default connect(null, {login})(LoginPage);
+export default connect(null, {login, authAction})(LoginPage);

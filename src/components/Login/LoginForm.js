@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import setAuthorization from '../../utils';
+import jwt from 'jsonwebtoken';
 
 class LoginForm extends Component {
 
@@ -21,9 +22,11 @@ class LoginForm extends Component {
             const token = res.headers['x-auth'];
             localStorage.setItem('jwtToken', token);
             setAuthorization(token);
+            this.setState({ redirect: true });
+            this.props.authAction(token);
+            this.setState({username:'', password: ''});
         },
-            (res) => this.setState({ redirect: true })
-        )    
+        );
     }
 
     onChange(e) {
