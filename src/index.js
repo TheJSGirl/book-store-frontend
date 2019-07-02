@@ -17,7 +17,7 @@ const store = createStore(rootReducer,composeEnhancer(applyMiddleware(reduxThunk
 
 if(localStorage.jwtToken) {
     setAuthorization(localStorage.jwtToken);
-    store.dispatch(authAction(jwt.decode(localStorage.jwtToken)));
+    store.dispatch(authAction(localStorage.jwtToken, jwt.decode(localStorage.jwtToken)));
 }
 
 ReactDOM.render(
