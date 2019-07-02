@@ -1,0 +1,30 @@
+.row {
+    display: flex;
+    border: 2px solid black;
+    justify-content: center;
+    flex-direction: column;
+    width: 20em;
+    height: 25em;
+    margin-top: 15%;
+    margin-left: 40%;
+    padding-bottom: -70px;
+}
+h1 {
+    margin-top: -20%;
+    margin-bottom: 10%;
+    font-family: sans-serif;
+    font-weight: 10px;
+}
+input {
+    width: 10rem;
+    height: 3em;
+    position: relative;
+    text-align:center;
+    margin: 1%;
+    border: 1px solid black;
+}
+
+button {
+    margin: 1%;
+    font-size: 1em;
+}

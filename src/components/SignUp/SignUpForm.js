@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import timezone from '../../data/timezone';
 import map from 'lodash/map';
+import './SignUp.css';
 
 
 
@@ -41,66 +42,53 @@ class SignUpForm extends Component {
         const {errors} = this.state;
         return(
             <form onSubmit={this.handleSubmit}>
-                <h1>SignUp</h1>
                 <div>
-                    <label className="control-label">Username</label>
                     <input
                         type="text"
                         name="username"
                         className="form-control"
                         value={this.state.username}
                         onChange = {this.onChange}
+                        placeholder="Username"
                     />
                     {errors && errors.username && <span>{errors.username}</span>}
                 </div>
                 <div>
-                    <label className="control-label">Email</label>
                     <input
                         type="text"
                         name="email"
                         className="form-control"
                         value={this.state.email}
                         onChange = {this.onChange}
+                        placeholder="Email"
                     />
                     { errors && errors.email && <span>{errors.email}</span>}
                 </div>
                 <div>
-                    <label className="control-label">Password</label>
                     <input
                         type="text"
                         name="password"
                         className="form-control"
                         value={this.state.password}
                         onChange = {this.onChange}
+                        placeholder="Password"
                     />
                     {errors && errors.password
                          && <span>{errors.password
                     }</span>}
                 </div>
                 <div>
-                    <label className="control-label">Confirm Password</label>
                     <input
                         type="text"
                         name="passwordConfirmation"
                         className="form-control"
                         value={this.state.passwordConfirmation}
                         onChange = {this.onChange}
+                        placeholder="Confirm Password"
                     />
                     {errors && errors.passwordConfirmation && <span>{errors.passwordConfirmation}</span>}
                 </div>
                 <div>
-                    <label className="control-label"> TimeZone</label>
-                    <select
-                        type="text"
-                        name="timezone"
-                        className="form-control"
-                        value={this.state.timezone}
-                        onChange = {this.onChange}
-                    >
-                        <option value="" disabled>Choose your timezone </option>
-                        {options}
-                    </select>
-                    {errors && errors.timezone && <span>{errors.timezone}</span>}
                 </div>
                 <div className="form-group">
                     <button className="btn btn-primary btn-lg">
