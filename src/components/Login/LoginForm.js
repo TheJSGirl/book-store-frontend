@@ -16,7 +16,10 @@ class LoginForm extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.loginProp(this.state).then(
+        this.props.loginProp(this.state).then((res) =>  {
+            const token = res.headers['x-auth'];
+            localStorage.setItem('jwtToken', token);
+        },
             (res) => this.setState({ redirect: true })
         )    
     }
