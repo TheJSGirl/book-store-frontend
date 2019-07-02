@@ -16,7 +16,7 @@ function App() {
       </nav>
       <Switch>
      
-      {/* <Route exact path="/signup" component={() => <SignUpPage/>}/> */}
+      <Route exact path="/signup" component={() => <SignUpPage/>}/>
       <Route exact path="/login" component={LoginPage}/>
       </Switch>
       </BrowserRouter>
