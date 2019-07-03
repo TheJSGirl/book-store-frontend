@@ -66,7 +66,7 @@ class SignUpForm extends Component {
                 </div>
                 <div>
                     <input
-                        type="text"
+                        type="password"
                         name="password"
                         className="form-control"
                         value={this.state.password}
@@ -79,7 +79,7 @@ class SignUpForm extends Component {
                 </div>
                 <div>
                     <input
-                        type="text"
+                        type="password"
                         name="passwordConfirmation"
                         className="form-control"
                         value={this.state.passwordConfirmation}

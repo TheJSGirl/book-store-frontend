@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import setAuthorization from '../../utils';
 import jwt from 'jsonwebtoken';
+import './Login.css';
 
 class LoginForm extends Component {
 
@@ -39,25 +40,24 @@ class LoginForm extends Component {
         }
         return(
             <form>
-                <h1>Login</h1>
                 <div>
-                    <label className="control-label">Username</label>
                     <input
                         type="text"
                         name="username"
                         className="form-control"
                         value={this.state.username}
                         onChange = {this.onChange}
+                        placeholder = "Username"
                     />
                 </div>
                 <div>
-                    <label className="control-label">Password</label>
                     <input
-                        type="text"
+                        type="password"
                         name="password"
                         className="form-control"
                         value={this.state.password}
                         onChange = {this.onChange}
+                        placeholder= "password"
                     />
                 </div>
                 

@@ -3,6 +3,7 @@ import LoginForm from './LoginForm';
 import {connect} from 'react-redux';
 import {login} from '../../actions/login-logout-Actions';
 import {authAction} from '../../actions/authActions';
+import './Login.css';
 
 class LoginPage extends Component {
 
@@ -10,10 +11,8 @@ class LoginPage extends Component {
        const {login, authAction } = this.props;
     return (
         <div className="row">
-            <div className="col-md-4 col-md-offset-4">
+                <h1>Login</h1>
                 <LoginForm loginProp={login} authAction={authAction} />
-            </div>
-
         </div>
     );
    }

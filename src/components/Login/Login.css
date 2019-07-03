@@ -27,10 +27,10 @@ input {
 }
 
 button {
-    margin: 1%;
+    margin: 2%;
     font-size: 1em;
     background-color: #20639B;
     color : #e5e5e5;
-    width: 7.5em;
+    width: 7em;
     height: 3em;
 }
