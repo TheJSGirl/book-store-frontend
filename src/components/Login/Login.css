@@ -5,7 +5,7 @@
     flex-direction: column;
     width: 20em;
     height: 25em;
-    margin-top: 15%;
+    margin-top: 10%;
     margin-left: 40%;
     padding-bottom: -70px;
 }
@@ -33,4 +33,6 @@ button {
     color : #e5e5e5;
     width: 7em;
     height: 3em;
+    margin-bottom: -50%;
+
 }

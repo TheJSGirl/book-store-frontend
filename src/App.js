@@ -9,7 +9,6 @@ import Logout from './components/Logout';
 function App() {
   return (
     <div className="App">
-      <div>
       <BrowserRouter>
       <Navigation />
       <Switch>
@@ -18,7 +17,6 @@ function App() {
         <Route exact path="/logout" component={Logout}/>
       </Switch>
       </BrowserRouter>
-      </div>
     </div>
   );
 }

@@ -1,0 +1,54 @@
+.Nav-bar {
+    display: flex;
+    justify-content: flex-end;
+    height: 3em;
+    margin: 20px;
+    padding-right: 10%;
+    padding-top: 3%;
+
+}
+.App-nav {
+    display: flex;
+    /* border: 1px solid black; */
+    height: 2em;
+    width: 10em;
+    justify-content: space-around;
+    font-size: 30px;
+}
+.Link {
+    display: flex;
+    text-decoration-line: none;
+    color: #20639B;
+    order: 1;
+}
+
+.Nav-link {
+    display: flex;
+    height: 2em;
+    width: 45em;
+    font-size: 30px;
+}
+.Nav-link-left {
+    display: flex;
+    height: 2em;
+    width: 40em;
+    justify-content: flex-start;
+    justify-items: stretch;
+    order: 1;
+
+}
+
+.Nav-link-right {
+    display: flex;
+    height: 2em;
+    width: 40em;
+    justify-content: flex-end;
+    justify-items: stretch;
+    order: 2;
+} 
+.Empty {
+    display: flex;
+    height: 1em;
+    width: 1em;
+}
+
