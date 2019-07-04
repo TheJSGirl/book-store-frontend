@@ -9,7 +9,6 @@
 }
 .App-nav {
     display: flex;
-    /* border: 1px solid black; */
     height: 2em;
     width: 10em;
     justify-content: space-around;

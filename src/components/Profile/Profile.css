@@ -1,0 +1,28 @@
+.row {
+    display: flex;
+    flex-basis: auto;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -1%;
+    /* border: 1px solid black; */
+}
+
+.profile {
+    display: flex;
+    justify-content: left;
+}
+
+img{
+    height: 20%;
+    width: 20%;
+    margin-left: -12%;
+    margin-top: 5%;
+}
+
+.greet{
+    padding-top: 12%;
+    padding-left: 2px;
+    /* margin-left: 2%; */
+}
+
