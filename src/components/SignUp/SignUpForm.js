@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import timezone from '../../data/timezone';
 import map from 'lodash/map';
 import './SignUp.css';
+import {Redirect} from 'react-router-dom';
 
 
 
@@ -27,7 +28,8 @@ class SignUpForm extends Component {
         this.props.userSignupRequest(this.state)
         .then(() => {}, 
         ({data}) => this.setState({errors: data}))
-        this.setState({ username: '', email: '', password:'', passwordConfirmation:'', timezone:''})
+        this.setState({ username: '', email: '', password:'', passwordConfirmation:'', timezone:''});
+
     }
 
     onChange(e) {

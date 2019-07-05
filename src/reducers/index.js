@@ -1,4 +1,4 @@
-import {SET_CURRENT_USER, USER_DATA} from '../actions/types';
+import {SET_CURRENT_USER, USER_DATA, UPDATED_DATA} from '../actions/types';
 
 const initialState = {
     isAuthenticated: false,
@@ -19,6 +19,12 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 userDetails:action.payload,
+            }
+        
+        case UPDATED_DATA: 
+            return {
+                ...state,
+                userDetails: action.payload.data.data
             }
 
         default: return state;
