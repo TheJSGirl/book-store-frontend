@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import './Profile.css';
 import Edit from './Edit';
+import ChangePassword from './ChangePassword';
 import {Redirect} from 'react-router-dom';
 
 class Profile extends Component {
@@ -31,10 +31,11 @@ class Profile extends Component {
                           <label>Email:  {this.props.userDetails.email}</label>
 
                             <label>Username: {this.props.userDetails.username}</label>
-                            
-                            <div>
+                            <div className="update">
                                 <Edit userDetails={data} updateUser={updateUser} user={this.props.user} />
+                                <ChangePassword />
                             </div>
+                            
                         
                     </div>): '' }
                 

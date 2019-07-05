@@ -66,7 +66,7 @@ class Edit extends Component {
             </form>
             </div>
         }else {
-            result = <button onClick={this.handleToggle}>Edit</button>
+            result = <button onClick={this.handleToggle} className="edit">Edit</button>
         }
         return result;
     }
