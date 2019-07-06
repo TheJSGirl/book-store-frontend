@@ -11,29 +11,26 @@ class Navigation extends Component {
     }
     render() {
         const {isAuthenticated} = this.props.auth;
-        const Links =<nav className="App-nav"> 
-            <NavLink exact activeClassName="active-link" to="/signup" className="Link">Register</NavLink>
-
-            <NavLink exact activeClassName="active-link" to="/login" className="Link">Login</NavLink>
-        </nav> 
-        const activeUser = <nav  className="Nav-bar" >
+        const Links = <div className="Nav-link-right">
+                <NavLink exact activeClassName="active-link" to="/signup" className="Link">Register</NavLink>
+                <NavLink exact activeClassName="active-link" to="/login" className="Link">Login</NavLink>
+            </div>   
+        const activeUser = <React.Fragment >
                             <div className="Nav-link-right">
                                 <NavLink exact activeClassName="active-link" to="/profile" className="Link">Profile 
-                                    {/* <div className="Empty"></div> */}
                                 </NavLink>
                                 <NavLink exact activeClassName="active-link" to="/logout" className="Link">Logout</NavLink>
                             </div>
                             <div className="Nav-link-left">
                                 <NavLink exact activeClassName="active-link" to="/" className="Link">Home
-                                    {/* <div className="Empty"></div> */}
                                 </NavLink>
                                 <NavLink exact activeClassName="active-link" to="/books" className="Link">Books</NavLink>
                             </div>
-                        </nav>
+                        </React.Fragment>
         return(
-            <div className="Nav-bar">
+            <nav className="App-nav">
                 {isAuthenticated ? activeUser : Links }
-            </div>
+            </nav>
         )        
     }
 

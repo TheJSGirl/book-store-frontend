@@ -5,28 +5,12 @@
     justify-content: space-around;
     font-size: 30px;
 }
-.Nav-bar {
-    display: flex;
-    justify-content: flex-end;
-    height: 3em;
-    margin: 20px;
-    padding-right: 10%;
-    padding-top: 3%;
-
-}
 .Link {
-    display: flex;
     text-decoration-line: none;
     color: #20639B;
-    order: 1;
+    margin: 10px;
 }
 
-.Nav-link {
-    display: flex;
-    height: 2em;
-    width: 45em;
-    font-size: 30px;
-}
 .Nav-link-left {
     display: flex;
     height: 2em;
@@ -37,6 +21,18 @@
 
 }
 
+.App-nav > .Nav-link-right {
+    position: absolute;
+    top: 5%;
+    right: 8%;
+}
+
+.App-nav > .Nav-link-left {
+    position: absolute;
+    top: 5%;
+    left: 8%;
+}
+
 .Nav-link-right {
     display: flex;
     height: 2em;
@@ -45,9 +41,5 @@
     justify-items: stretch;
     order: 2;
 } 
-.Empty {
-    display: flex;
-    height: 1em;
-    width: 1em;
-}
+
 
