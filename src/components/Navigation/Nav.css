@@ -1,45 +1,36 @@
 .App-nav {
     display: flex;
-    height: 2em;
-    width: 10em;
-    justify-content: space-around;
     font-size: 30px;
+    background-color: red;
 }
 .Link {
     text-decoration-line: none;
     color: #20639B;
-    margin: 10px;
+    margin-right: 10px;
 }
 
 .Nav-link-left {
     display: flex;
-    height: 2em;
-    width: 40em;
     justify-content: flex-start;
     justify-items: stretch;
-    order: 1;
 
 }
 
 .App-nav > .Nav-link-right {
-    position: absolute;
+    position: fixed;
     top: 5%;
     right: 8%;
 }
 
 .App-nav > .Nav-link-left {
-    position: absolute;
+    position: fixed;
     top: 5%;
     left: 8%;
 }
 
 .Nav-link-right {
     display: flex;
-    height: 2em;
-    width: 40em;
     justify-content: flex-end;
-    justify-items: stretch;
-    order: 2;
 } 
 
 

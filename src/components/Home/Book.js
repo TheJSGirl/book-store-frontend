@@ -11,7 +11,6 @@ class Book extends Component {
        return (
            <div className="book" >
 
-
            </div>
        )
     }
