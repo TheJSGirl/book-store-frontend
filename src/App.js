@@ -12,10 +12,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <Route exact path="/login" component={LoginPage}/>
+      <Route exact path="/signup" component={() => <SignUpPage/>}/>
+
+
       <Navigation />
       <Switch>
-        <Route exact path="/signup" component={() => <SignUpPage/>}/>
-        <Route exact path="/login" component={LoginPage}/>
         <Route exact path="/logout" component={Logout}/>
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/" component={Home} />
