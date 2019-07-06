@@ -8,6 +8,7 @@ export function logout() {
         localStorage.removeItem('jwtToken');
         setAuthorization(false);
         dispatch(authAction({}));
+        window.location.href ='/login';
     }
 }
 
