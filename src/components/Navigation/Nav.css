@@ -1,12 +1,12 @@
 .App-nav {
     display: flex;
-    font-size: 30px;
+    font-size: 35px;
     background-color: red;
 }
 .Link {
     text-decoration-line: none;
     color: #20639B;
-    margin-right: 10px;
+    margin-right: 35px;
 }
 
 .Nav-link-left {
