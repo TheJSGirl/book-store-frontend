@@ -10,7 +10,10 @@ class Book extends Component {
     render() {
        return (
            <div className="book" >
+               <div className="image">
+                <img className="book-image" src={require('./image.jpg')}/>
 
+               </div>
            </div>
        )
     }

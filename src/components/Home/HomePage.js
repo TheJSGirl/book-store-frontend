@@ -10,11 +10,9 @@ class HomePage extends Component {
     }
 
     render() {
-       return (
-               <div className="homePage">
-               <BookList />
-           </div>
-       )
+       return (<div className="homePage">
+                    <BookList />
+                </div>)
     }
 
 }

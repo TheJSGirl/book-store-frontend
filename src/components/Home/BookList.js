@@ -11,20 +11,13 @@ class BookList extends Component {
        return (
            <React.Fragment>
                 <Book />
-               <Book />
-               <Book />
-               <Book />
-               <Book />
-               <Book />
-               <Book />
-               <Book />
-               <Book />
-               <Book />
-               <Book />
-               <Book />
-               <Book />
-               <Book />
-               <Book />
+                <Book />
+                <Book />
+                <Book />
+                <Book />
+                <Book />
+                <Book />
+                <Book />
 
            </React.Fragment>
        )

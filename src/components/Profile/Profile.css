@@ -13,7 +13,7 @@
     flex-direction: column;
 }
 
-img{
+.profile-image{
     height: 20%;
     width: 15%;
     margin-left: 43%;

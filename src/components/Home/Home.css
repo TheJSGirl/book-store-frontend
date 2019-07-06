@@ -3,17 +3,27 @@
     flex-direction: column; 
     flex-wrap: wrap;
     flex-flow: row wrap;
-    margin-top: 8%;
+    margin-top: 20%;
     margin-left: 10%;
     margin-right: 10%;
-    justify-content: flex-start;
+    justify-content: center;
+    overflow: hidden;
 }
 .book {  
-    display: flex;
     width: 15em;
-    margin: 15px;
     height: 18em;
     border: 1px solid black;
-    margin-right: 92px;
-    margin-bottom: 70px;
+    margin: 10px;
+    z-index: -50;
+    background: black;
+}
+
+.book-image {
+    height: 288px;
+    width: 100%;
+    object-fit: scale-down;
+    display: block;
+    overflow: hidden;
+    z-index: -28;
+
 }

@@ -24,7 +24,7 @@ class Profile extends Component {
                 {this.props.userDetails ?(<div className="profile">
                     <h1 className="greet">Helllo !
                         ! {this.props.userDetails.username}</h1>
-                        <img src={require('./image.jpg')} />
+                        <img className="profile-image" src={require('./image.jpg')} />
                         
                           <label>Name:  {this.props.userDetails.username}</label>
 
