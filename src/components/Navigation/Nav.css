@@ -17,13 +17,13 @@
 }
 
 .App-nav > .Nav-link-right {
-    position: fixed;
+    position: absolute;
     top: 5%;
     right: 8%;
 }
 
 .App-nav > .Nav-link-left {
-    position: fixed;
+    position: absolute;
     top: 5%;
     left: 8%;
 }
