@@ -23,6 +23,7 @@
 .greet{
     margin-top: 5%;
     font-size: 30px;
+    color: #20639B;
 }
 
 label {
@@ -30,7 +31,7 @@ label {
     font-size: 20px;
     color: #20639B;
 }
-button {
+.btn-primary {
     background-color: #20639B;
 }
 

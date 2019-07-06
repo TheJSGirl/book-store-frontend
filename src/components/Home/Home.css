@@ -10,20 +10,43 @@
     overflow: hidden;
 }
 .book {  
+    position: relative;
     width: 15em;
     height: 18em;
     border: 1px solid black;
     margin: 10px;
     z-index: -50;
     background: black;
+    
 }
 
 .book-image {
-    height: 288px;
+    height: 245px;
     width: 100%;
     object-fit: scale-down;
     display: block;
     overflow: hidden;
     z-index: -28;
 
+}
+.book-title {
+    color: white;
+    font-size: 25px;
+    position: absolute;
+    left: 35px;
+    margin-top: 10px;
+}
+
+.cart {
+    position: absolute;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 8px;
+    right: 40;
+    margin-top: 1px;
 }

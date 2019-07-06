@@ -62,7 +62,7 @@ class LoginForm extends Component {
                 </div>
                 
                 <div className="form-group">
-                    <button className="btn btn-primary btn-lg"  onClick={this.handleSubmit}>
+                    <button className="btn-primary"  onClick={this.handleSubmit}>
                          Login
                     </button>
                 </div>

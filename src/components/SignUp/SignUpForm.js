@@ -93,7 +93,7 @@ class SignUpForm extends Component {
                 <div>
                 </div>
                 <div className="form-group">
-                    <button className="btn btn-primary btn-lg">
+                    <button className="btn-primary">
                         Sign up
                     </button>
                 </div>

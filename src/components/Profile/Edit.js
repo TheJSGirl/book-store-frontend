@@ -61,12 +61,12 @@ class Edit extends Component {
 
                     />
 
-                    <button>Save</button>
+                    <button className="btn-primary">Save</button>
                     
             </form>
             </div>
         }else {
-            result = <button onClick={this.handleToggle} className="edit">Edit</button>
+            result = <button onClick={this.handleToggle} className="edit btn-primary">Edit</button>
         }
         return result;
     }

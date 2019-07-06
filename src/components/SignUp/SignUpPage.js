@@ -10,7 +10,7 @@ class SignUpPage extends Component {
        const { userSignupRequest } = this.props;
     return (
         <div className="row">
-                <h1>Register</h1>
+                <h1 className="signup-h1">Register</h1>
                 <SignUpForm userSignupRequest={userSignupRequest}/>
         </div>
     );

@@ -11,7 +11,7 @@ class LoginPage extends Component {
        const {login, authAction } = this.props;
     return (
         <div className="row">
-                <h1>Login</h1>
+                <h1 className="login-h1">Login</h1>
                 <LoginForm loginProp={login} authAction={authAction} />
         </div>
     );

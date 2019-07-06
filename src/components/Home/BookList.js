@@ -12,12 +12,12 @@ class BookList extends Component {
            <React.Fragment>
                 <Book />
                 <Book />
+                {/* <Book />
                 <Book />
                 <Book />
                 <Book />
                 <Book />
-                <Book />
-                <Book />
+                <Book /> */}
 
            </React.Fragment>
        )

@@ -47,7 +47,7 @@ class ChangePassword extends Component {
                         </form>
                     </div>
         }else {
-            result = <button onClick={this.handleToggle} className="changePassword">Change Password</button>
+            result = <button onClick={this.handleToggle} className="changePassword btn-primary">Change Password</button>
         }
         return result;
     }

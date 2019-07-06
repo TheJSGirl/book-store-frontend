@@ -14,6 +14,8 @@ class Book extends Component {
                 <img className="book-image" src={require('./image.jpg')}/>
 
                </div>
+               <h1 className="book-title">Title</h1>
+               <button className="cart"> <i class="fas fa-cart-plus"></i></button>
            </div>
        )
     }
