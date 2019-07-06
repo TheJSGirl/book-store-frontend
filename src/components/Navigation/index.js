@@ -16,20 +16,20 @@ class Navigation extends Component {
 
             <NavLink exact activeClassName="active-link" to="/login" className="Link">Login</NavLink>
         </nav> 
-        const activeUser = <div  className="Nav-link" >
+        const activeUser = <nav  className="Nav-bar" >
                             <div className="Nav-link-right">
                                 <NavLink exact activeClassName="active-link" to="/profile" className="Link">Profile 
-                                    <div className="Empty"></div>
+                                    {/* <div className="Empty"></div> */}
                                 </NavLink>
                                 <NavLink exact activeClassName="active-link" to="/logout" className="Link">Logout</NavLink>
                             </div>
                             <div className="Nav-link-left">
                                 <NavLink exact activeClassName="active-link" to="/" className="Link">Home
-                                    <div className="Empty"></div>
+                                    {/* <div className="Empty"></div> */}
                                 </NavLink>
                                 <NavLink exact activeClassName="active-link" to="/books" className="Link">Books</NavLink>
                             </div>
-                        </div>
+                        </nav>
         return(
             <div className="Nav-bar">
                 {isAuthenticated ? activeUser : Links }
