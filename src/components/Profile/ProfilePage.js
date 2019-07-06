@@ -11,7 +11,7 @@ class ProfilePage extends Component {
         const {getUserdata, updateUser} = this.props;
         const {userDetails} = this.props.data;
         return(
-            <div className="row">
+            <div className="profileRow">
                 <Profile user={getUserdata} userDetails={userDetails} updateUser={updateUser}/>
             </div>
         );

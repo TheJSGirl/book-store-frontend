@@ -1,5 +1,6 @@
 .row {
     display: flex;
+    border: 1px solid black;
     justify-content: center;
     flex-direction: column;
     width: 20em;

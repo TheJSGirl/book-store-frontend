@@ -1,4 +1,4 @@
-.row {
+.profileRow {
     display: flex;
     flex-basis: auto;
     width: 90%;
@@ -21,14 +21,11 @@ img{
 }
 
 .greet{
-    padding-top: 15%;
+    margin-top: 5%;
     font-size: 30px;
 }
 
 label {
-    /* margin: auto; */
-    /* margin-left: 6%; */
-    /* padding: 5%; */
     margin-top: 1%;
     font-size: 20px;
     color: #20639B;

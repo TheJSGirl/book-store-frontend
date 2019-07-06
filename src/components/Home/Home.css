@@ -1,0 +1,19 @@
+.homePage {
+    display: flex;
+    flex-direction: column; 
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    margin-top: 8%;
+    margin-left: 10%;
+    margin-right: 10%;
+    justify-content: flex-start;
+}
+.book {  
+    display: flex;
+    width: 15em;
+    margin: 15px;
+    height: 18em;
+    border: 1px solid black;
+    margin-right: 92px;
+    margin-bottom: 70px;
+}

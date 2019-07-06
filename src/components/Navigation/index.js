@@ -16,7 +16,7 @@ class Navigation extends Component {
 
             <NavLink exact activeClassName="active-link" to="/login" className="Link">Login</NavLink>
         </nav> 
-        const logout = <div  className="Nav-link" >
+        const activeUser = <div  className="Nav-link" >
                             <div className="Nav-link-right">
                                 <NavLink exact activeClassName="active-link" to="/profile" className="Link">Profile 
                                     <div className="Empty"></div>
@@ -32,7 +32,7 @@ class Navigation extends Component {
                         </div>
         return(
             <div className="Nav-bar">
-                {isAuthenticated ? logout : Links }
+                {isAuthenticated ? activeUser : Links }
             </div>
         )        
     }
