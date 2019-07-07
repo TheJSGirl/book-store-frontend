@@ -12,7 +12,7 @@
 .book {  
     position: relative;
     width: 15em;
-    height: 18em;
+    height: 20em;
     border: 1px solid black;
     margin: 10px;
     z-index: -50;
@@ -31,22 +31,24 @@
 }
 .book-title {
     color: white;
-    font-size: 25px;
-    position: absolute;
-    left: 35px;
-    margin-top: 10px;
+    font-size: 20px;
 }
 
 .cart {
-    position: absolute;
     border-radius: 50%;
     border: none;
-    color: white;
-    padding: 20px;
-    text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 8px;
-    right: 40;
-    margin-top: 1px;
+    padding: 10px;
+} 
+
+.book-element {
+    order: -1
+}
+
+.book-footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin-top: 13px;
 }

@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './Home.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
 
 class Book extends Component {
 
@@ -14,8 +16,18 @@ class Book extends Component {
                 <img className="book-image" src={require('./image.jpg')}/>
 
                </div>
-               <h1 className="book-title">Title</h1>
-               <button className="cart"> <i class="fas fa-cart-plus"></i></button>
+                <div className="book-footer">
+                    <div className="book-element">
+                      <p class="book-title">Title</p>
+
+                    </div>
+                    <div  className="book-element">
+                    <button className="cart">
+                            <FontAwesomeIcon icon={faCartPlus} size='2x'/>
+                    </button> 
+                    </div>
+                    
+                </div>
            </div>
        )
     }
