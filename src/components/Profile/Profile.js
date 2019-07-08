@@ -22,13 +22,15 @@ class Profile extends Component {
         this.handleToggle = this.handleToggle.bind(this);
     }
     componentDidMount() {
-        this.props.user(); 
+         this.props.user().then((r) => {
+             this.setState({name: r.payload.name, email: r.payload.email, username: r.payload.username})
+         });
+        
     }
 
 
     handleOnchange(e) {
         e.preventDefault();
-        console.log([e.target.name])
         this.setState({[e.target.name]: e.target.value});
 
     }
@@ -48,10 +50,8 @@ class Profile extends Component {
         const {userDetails} = this.props;
         const updateUser = this.props.updateUser;
         let result;
-
         if(this.state.isEditing) {
 
-            console.log(this.state.isEditing)
 
             result = <div className="profile-detail">
             <div className="profile-row">
@@ -60,7 +60,7 @@ class Profile extends Component {
                     className='i'
                     type="text"
                     name="name"
-                    value={userDetails.username}
+                    value={this.state.name}
                     onChange={this.handleOnchange}
                     
                 />
@@ -71,7 +71,7 @@ class Profile extends Component {
                     className='i' 
                     type="text"
                     name="username"
-                    value={userDetails.username}
+                    value={this.state.username}
                     onChange={this.handleOnchange}
 
                 />
@@ -82,7 +82,7 @@ class Profile extends Component {
                     className='i' 
                     type="email"
                     name="email"
-                    value={userDetails.email}
+                    value={this.state.email}
                     onChange={this.handleOnchange}
                 />
             </div>
@@ -90,14 +90,14 @@ class Profile extends Component {
         </div>
             
         }else {
-            result = this.props.userDetails ? <div className="profile-detail">
+            result = userDetails && <div className="profile-detail">
                                 <div className="profile-row">
                                     <label className="l">Name</label>
                                     <input 
                                         className='i'
                                         type="text"
                                         name="name"
-                                        value={userDetails.username}
+                                        value={this.state.name}
                                         
                                     />
                                 </div>
@@ -107,7 +107,7 @@ class Profile extends Component {
                                         className='i' 
                                         type="text"
                                         name="username"
-                                        value={userDetails.username}
+                                        value={this.state.username}
 
                                     />
                                 </div>
@@ -117,19 +117,19 @@ class Profile extends Component {
                                         className='i' 
                                         type="email"
                                         name="email"
-                                        value={userDetails.email}
+                                        value={this.state.email}
                                     />
                                 </div>
-                            </div>: '';
+                            </div>;
 
         }
     
         return(
             <React.Fragment>
-                {this.props.userDetails ?(<div className="profile">
+                {userDetails ? (<div className="profile">
                     <div className="profile-title">
                         <h1>Helllo !
-                        !{this.props.userDetails.username}</h1>
+                        !{userDetails.username}</h1>
                     </div>  
 
                     <div className="profile-info">
@@ -139,8 +139,8 @@ class Profile extends Component {
                         </div>
                         <div className="profile-form">
                             <div className="profile-menu">
-                                <React.Fragment><button onClick={this.handleToggle}>Edit</button></React.Fragment>
-                                <React.Fragment><ChangePassword /></React.Fragment>
+                                <React.Fragment><button onClick={this.handleToggle} className="btn-primary">Edit</button></React.Fragment>
+                                <React.Fragment><button  className="btn-primary">Change Password</button></React.Fragment>
                             </div>
                             {result}
                         </div>
