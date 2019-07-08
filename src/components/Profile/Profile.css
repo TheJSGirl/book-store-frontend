@@ -1,36 +1,70 @@
-.profileRow {
-    display: flex;
-    flex-basis: auto;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -1%;
-}
-
 .profile {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    flex-flow: column;
+    margin: 5%;
 }
 
-.profile-image{
-    height: 20%;
-    width: 15%;
-    margin-left: 43%;
-    margin-top: -8%;
+.profile-title {
+    display: flex;
+    flex:1;
+    flex-direction: row;  
+    margin-left: 25px;  
+    justify-content: flex-start    ;
 }
 
-.greet{
-    margin-top: 5%;
-    font-size: 30px;
-    color: #20639B;
+.profile-info {
+    display: flex;
+    flex-flow: row;
 }
 
-label {
-    margin-top: 1%;
-    font-size: 20px;
-    color: #20639B;
+
+.profile-image {
+    flex: 4;
+    align-items: center;
 }
+
+.image {
+    height: 245px;
+    width: 100%;
+    object-fit: scale-down;
+    display: block;
+    overflow: hidden;
+    z-index: -28;
+}
+
+.profile-form {
+    display: flex;
+    flex-flow: column;
+    flex: 10;
+}
+
+.profile-menu {
+    display: flex;
+    flex-direction: row;
+    flex:1;
+    align-self: center;
+    justify-content: flex-start;
+}
+.profile-detail {
+    display: flex;
+    flex-flow: column;
+    flex:1
+}
+
+.profile-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.i {
+ flex: 10
+}
+
+.l {
+flex:2
+}
+
 .btn-primary {
     background-color: #20639B;
 }
@@ -42,3 +76,4 @@ label {
 .edit {
     width: 10em;
 }
+

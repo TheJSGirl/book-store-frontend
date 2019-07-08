@@ -1,8 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import Profile from './Profile';
 import { connect } from 'react-redux';
 import {getUserdata, updateUser} from '../../actions/profile';
 import './Profile.css'
+import Edit from './Edit';
+import ChangePassword from './ChangePassword';
 
 
 class ProfilePage extends Component {
@@ -11,9 +13,9 @@ class ProfilePage extends Component {
         const {getUserdata, updateUser} = this.props;
         const {userDetails} = this.props.data;
         return(
-            <div className="profileRow">
+            <Fragment>
                 <Profile user={getUserdata} userDetails={userDetails} updateUser={updateUser}/>
-            </div>
+            </Fragment>
         );
     }
 }

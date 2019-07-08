@@ -34,37 +34,76 @@ class Edit extends Component {
 
     render() {
         let result;
+        console.log(this.state.isEditing)
         if(this.state.isEditing) {
-            result =  <div>
-                    <form onSubmit={this.handleSubmit}>
-                    <label for="name">Name</label>
-                    <input
-                        type="text"
-                        name="name"
-                        value={this.state.name}
-                        onChange={this.handleOnchange}
-                    />
-                    <label for="email">Email</label>
-                    <input 
-                        type="emai"
-                        name="email"
-                        value={this.state.email}
-                        onChange={this.handleOnchange}
+            // result =  <div>
+            //         <form onSubmit={this.handleSubmit}>
+            //         <label for="name">Name</label>
+            //         <input
+            //             type="text"
+            //             name="name"
+            //             value={this.state.name}
+            //             onChange={this.handleOnchange}
+            //         />
+            //         <label for="email">Email</label>
+            //         <input 
+            //             type="emai"
+            //             name="email"
+            //             value={this.state.email}
+            //             onChange={this.handleOnchange}
 
-                    />
-                    <label for="username">Username</label>
-                    <input 
-                        type="username"
-                        name="username"
-                        value={this.state.username}
-                        onChange={this.handleOnchange}
+            //         />
+            //         <label for="username">Username</label>
+            //         <input 
+            //             type="username"
+            //             name="username"
+            //             value={this.state.username}
+            //             onChange={this.handleOnchange}
 
-                    />
+            //         />
 
-                    <button className="btn-primary">Save</button>
+            //         <button className="btn-primary">Save</button>
                     
-            </form>
+            // </form>
+            // </div>
+            result = <div className="profile">
+            <div className="profile-info">
+                <div className="profile-form">
+                    <div className="profile-detail">
+                        <div className="profile-row">
+                            <label className="l">Name</label>
+                            <input 
+                                className='i'
+                                value={this.state.username}
+                                onChange={this.handleOnchange}
+
+                            />
+                        </div>
+                        <div className="profile-row">
+                            <label className='l'>Username</label>
+                            <input
+                                className='i' 
+                                value={this.state.username}
+                                onChange={this.handleOnchange}
+
+                            />
+                        </div>
+                        <div className="profile-row">
+                                    <label className='l'>Email</label>
+                                    <input
+                                        className='i' 
+                                        value={this.state.email}
+                                        onChange={this.handleOnchange}
+                                    />
+                        </div>
+                    <button className="btn-primary">Save</button>
+
+                    </div>
+
+                </div>
+                
             </div>
+        </div>
         }else {
             result = <button onClick={this.handleToggle} className="edit btn-primary">Edit</button>
         }
