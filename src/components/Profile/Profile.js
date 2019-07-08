@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import './Profile.css';
-import ChangePassword from './ChangePassword';
-import {Redirect} from 'react-router-dom';
-import {getUserdata, updateUser} from '../../actions/profile';
 
 
 class Profile extends Component {
@@ -26,7 +23,7 @@ class Profile extends Component {
         this.handleChangePassword = this.handleChangePassword.bind(this);
     }
 
-    
+
     componentDidMount() {
          this.props.user().then((r) => {
              this.setState({name: r.payload.name, email: r.payload.email, username: r.payload.username})

@@ -3,7 +3,6 @@ import Profile from './Profile';
 import { connect } from 'react-redux';
 import {getUserdata, updateUser} from '../../actions/profile';
 import './Profile.css'
-import ChangePassword from './ChangePassword';
 
 
 class ProfilePage extends Component {
