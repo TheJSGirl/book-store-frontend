@@ -9,6 +9,15 @@ class HomePage extends Component {
 
     constructor(props){
         super(props);
+        this.state = {
+            search: ''
+        }
+        this.handleOnchange = this.handleOnchange.bind(this);
+    }
+
+    handleOnchange(e) {
+        e.preventDefault();
+        this.setState({search:e.target.value});
     }
 
     render() {
@@ -16,7 +25,15 @@ class HomePage extends Component {
         const {books} = this.props.data;
 
        return (<div className="homePage">
-                    <BookList books={books} allBooks={getBooks}/>
+                        <div className="search-bar">
+                            <input 
+                                name="search"
+                                value={this.state.search}
+                                onChange={this.handleOnchange}
+                            />
+                        </div>
+                        <BookList books={books} allBooks={getBooks}/>
+                   
                 </div>)
     }
 

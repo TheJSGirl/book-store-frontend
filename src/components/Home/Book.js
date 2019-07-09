@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {getBooks} from '../../actions/book';
+import {Redirect, Link} from 'react-router-dom';
 import './Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
@@ -10,11 +10,11 @@ class Book extends Component {
         super(props);
     }
     render() {
-        console.log(this.props.data)
        return (
            <div className="book" >
                <div className="image">
-                <img className="book-image" src={require('./image.jpg')}/>
+                    <img className="book-image" src={require('./image.jpg')}/>
+
                </div>
                 <div className="book-footer">
                     <div className="book-element">
@@ -26,8 +26,8 @@ class Book extends Component {
                             <FontAwesomeIcon icon={faCartPlus} size='2x'/>
                     </button> 
                     </div>
-                    
                 </div>
+
            </div>
        )
     }
