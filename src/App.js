@@ -7,6 +7,7 @@ import Navigation from './components/Navigation';
 import Logout from './components/Logout';
 import Profile from './components/Profile/ProfilePage';
 import Home from './components/Home/HomePage';
+import Book  from './components/Home/BookDetail';
 
 function App() {
   return (
@@ -14,13 +15,13 @@ function App() {
       <BrowserRouter>
       <Route exact path="/login" component={LoginPage}/>
       <Route exact path="/signup" component={() => <SignUpPage/>}/>
-
-
       <Navigation />
       <Switch>
         <Route exact path="/logout" component={Logout}/>
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/" component={Home} />
+        <Route exact path="/book" component={Book} />
+
       </Switch>
       </BrowserRouter>
     </div>

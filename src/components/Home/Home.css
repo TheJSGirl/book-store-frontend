@@ -8,6 +8,7 @@
     margin-right: 10%;
     justify-content: center;
     overflow: hidden;
+    z-index: 150
 }
 .book {  
     position: relative;
@@ -15,9 +16,8 @@
     height: 20em;
     border: 1px solid black;
     margin: 10px;
-    z-index: -50;
+    z-index: 1;
     background: black;
-    
 }
 
 .book-image {
@@ -53,6 +53,46 @@
     margin-top: 13px;
 }
 
+.detail-btn {
+    margin: 10px;
+} 
+
 .search-bar {
     display: flex;
+}
+
+.book-details {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid black; */
+}
+.book-heading {
+    border: 1px solid black;
+    display: flex;
+    justify-content: left;
+    margin: 10px;
+}
+.book-data {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+}
+.book-cover {
+    display: flex;
+    justify-content: left;
+    margin: 5px;
+    flex: 5;
+}
+.book-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    border: 1px solid black;
+    flex: 50;
+}
+.description {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex: 10;
 }

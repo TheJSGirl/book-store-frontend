@@ -8,10 +8,17 @@ class Book extends Component {
 
     constructor(props){
         super(props);
+        this.showBook = this.showBook.bind(this);
     }
+
+    showBook(e) {
+        
+
+    }
+
     render() {
        return (
-           <div className="book" >
+           <div className="book" onClick={this.showBook} style={{cursor: 'pointer'}}>
                <div className="image">
                     <img className="book-image" src={require('./image.jpg')}/>
 

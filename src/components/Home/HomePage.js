@@ -25,13 +25,14 @@ class HomePage extends Component {
         const {books} = this.props.data;
 
        return (<div className="homePage">
-                        <div className="search-bar">
+                         {/* <div className="search-bar">
                             <input 
                                 name="search"
                                 value={this.state.search}
                                 onChange={this.handleOnchange}
-                            />
-                        </div>
+                                />
+                        </div> */}
+                   
                         <BookList books={books} allBooks={getBooks}/>
                    
                 </div>)
