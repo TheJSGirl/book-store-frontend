@@ -1,12 +1,12 @@
 .homePage {
     display: flex;
     flex-direction: column; 
-    flex-wrap: wrap;
-    flex-flow: row wrap;
-    margin-top: 20%;
+  flex-flow: column;
+    margin-top: 0%;
     margin-left: 10%;
     margin-right: 10%;
     justify-content: center;
+    align-items: center;
     overflow: hidden;
     z-index: 150
 }
@@ -27,11 +27,6 @@
     overflow: hidden;
     z-index: -28;
 
-}
-.book-title {
-    color: #20639B;
-    margin-left: 6px;
-    font-size: 20px;
 }
 
 .cart {
@@ -59,6 +54,10 @@
 
 .search-bar {
     display: flex;
+    flex: 1;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
 }
 
 .book-details {
@@ -105,13 +104,35 @@
     border-radius: 10px;
     font-weight: bold;
 }
-.book-title {
+.book-title-lg {
     margin-left: 6px;
     font-size: 30px;
     margin-bottom: 0px;
 }
+.book-title-sm {
+    color: #20639B;
+    margin-left: 6px;
+    font-size: 20px;
+}
+a {
+    text-decoration: none;
+}
 .description-para {
     text-align: left;
     word-wrap: break-word;
+}
+
+.my-book {
+  display: flex;
+  flex-direction: row;  
+  /* flex-flow: row; */
+  justify-content: center;
+
+  flex-wrap: wrap;
+}
+.search {
+    width: 50%;
+    border-radius: 15px;
+    border: 2px solid #20639B;
 }
 

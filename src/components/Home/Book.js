@@ -28,7 +28,7 @@ class Book extends Component {
                </div>
                 <div className="book-footer">
                     <div className="book-element">
-                      <p class="book-title">{this.props.data.title}</p>
+                      <p class="book-title-sm">{this.props.data.title}</p>
 
                     </div>
                     <div  className="book-element">

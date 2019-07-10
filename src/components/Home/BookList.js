@@ -13,9 +13,9 @@ class BookList extends Component {
     
     render() {
        return (
-           <React.Fragment>
+           <div className="my-book">
                 {this.props.books && this.props.books.map(e => <Book data={e} key={e.id}/>)}
-           </React.Fragment>
+           </div>
        )
     }
 

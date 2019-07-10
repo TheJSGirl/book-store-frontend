@@ -32,7 +32,7 @@ class BookDetails extends Component {
                     </div>
                     <div className="book-description">
                         <div className="book-heading">
-                            <h2 className="book-title">{this.state.title}</h2>
+                            <h2 className="book-title-lg">{this.state.title}</h2>
                         </div>
                         <div className="description">
                         {/* {this.state.description} */}
