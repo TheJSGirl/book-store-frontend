@@ -8,7 +8,7 @@ import Logout from './components/Logout';
 import Profile from './components/Profile/ProfilePage';
 import Home from './components/Home/HomePage';
 import Book  from './components/Home/BookDetail';
-import MyBook from './components/Home/MyBook';
+import MyBook from './components/MyBooks/MyBookPage';
 
 function App() {
   return (

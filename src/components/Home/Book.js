@@ -4,7 +4,7 @@ import {Redirect, Link} from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import './Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons'
+import { faCartPlus, faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons'
 
 class Book extends Component {
 
@@ -29,9 +29,20 @@ class Book extends Component {
                       <p class="book-title-sm">{this.props.data.title}</p>
                     </div>
                     <div  className="book-element">
-                        <button className="cart">
-                            <FontAwesomeIcon icon={faCartPlus} size='2x'/>
+                       
+                        {this.props.delete && this.props.edit?  (<div>
+                            <button className="cart mybook-btn">
+                            <FontAwesomeIcon icon={faTrashAlt} size='1x'/>
                         </button>
+                        <button className="cart mybook-btn">
+                        <FontAwesomeIcon icon={faEdit} size='1x'/>
+                    </button>
+                            </div>
+
+                        )
+                            :  <button className="cart">
+                            <FontAwesomeIcon icon={faCartPlus} size='2x'/>
+                        </button>}
                     </div>
                 </div>
 
