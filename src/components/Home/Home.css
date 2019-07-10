@@ -1,23 +1,22 @@
 .homePage {
     display: flex;
     flex-direction: column; 
-    flex-wrap: wrap;
-    flex-flow: row wrap;
-    margin-top: 20%;
+  flex-flow: column;
+    margin-top: 0%;
     margin-left: 10%;
     margin-right: 10%;
     justify-content: center;
+    align-items: center;
     overflow: hidden;
+    z-index: 150
 }
 .book {  
     position: relative;
     width: 15em;
     height: 20em;
-    border: 1px solid black;
     margin: 10px;
-    z-index: -50;
+    z-index: 1;
     background: black;
-    
 }
 
 .book-image {
@@ -28,10 +27,6 @@
     overflow: hidden;
     z-index: -28;
 
-}
-.book-title {
-    color: white;
-    font-size: 20px;
 }
 
 .cart {
@@ -52,3 +47,92 @@
     justify-content: space-around;
     margin-top: 13px;
 }
+
+.detail-btn {
+    margin: 10px;
+} 
+
+.search-bar {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+}
+
+.book-details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.book-heading {
+    display: flex;
+    justify-content: left;
+}
+.book-data {
+    display: flex;
+    flex-direction: row;
+}
+.book-cover {
+    display: flex;
+    justify-content: left;
+    flex: 4;
+}
+.book-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    flex: 8;
+}
+.description {
+    display: flex;
+    flex-direction: row;
+    flex: 4;
+}
+.add-to-cart {
+    flex: 1;
+    display: flex;
+    margin: 10px;
+    justify-content: flex-end;
+
+}
+.cart-btn {
+    background-color: #20639B;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.book-title-lg {
+    margin-left: 6px;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+.book-title-sm {
+    color: #20639B;
+    margin-left: 6px;
+    font-size: 20px;
+}
+a {
+    text-decoration: none;
+}
+.description-para {
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.my-book {
+  display: flex;
+  flex-direction: row;  
+  /* flex-flow: row; */
+  justify-content: center;
+
+  flex-wrap: wrap;
+}
+.search {
+    width: 50%;
+    border-radius: 15px;
+    border: 2px solid #20639B;
+}
+

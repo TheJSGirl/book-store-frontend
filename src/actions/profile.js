@@ -10,13 +10,13 @@ export function getUserdata() {
     }
 }
 
-export function updateUser(body) {
+export function updateUser(data) {
     return dispatch => {
         return axios.patch(baseUrl,{
             headers:{
                 Authorization: `bearer ${localStorage.jwtToken}`
             },
-            body
+            body:data
         
         }).then((res) => dispatch({
             type: UPDATED_DATA,

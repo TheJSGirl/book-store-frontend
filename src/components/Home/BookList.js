@@ -7,19 +7,15 @@ class BookList extends Component {
         super(props);
     }
 
+    componentDidMount() {
+        this.props.allBooks();
+    }
+    
     render() {
        return (
-           <React.Fragment>
-                <Book />
-                <Book />
-                {/* <Book />
-                <Book />
-                <Book />
-                <Book />
-                <Book />
-                <Book /> */}
-
-           </React.Fragment>
+           <div className="my-book">
+                {this.props.books && this.props.books.map(e => <Book data={e} key={e.id}/>)}
+           </div>
        )
     }
 

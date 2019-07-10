@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import './Profile.css';
-import Edit from './Edit';
-import ChangePassword from './ChangePassword';
-import {Redirect} from 'react-router-dom';
-import {getUserdata, updateUser} from '../../actions/profile';
 
 
 class Profile extends Component {
@@ -15,12 +11,19 @@ class Profile extends Component {
             name : '',
             email : '',
             username: '',
-            isEditing : false
+            newPassword: '',
+            confirmPassword: '',
+            isEditing : false,
+            isPasswordChanged: false
         }
         this.handleOnchange = this.handleOnchange.bind(this);
-        this.handleOnclick = this.handleOnclick.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleToggle = this.handleToggle.bind(this);
+        this.handlePasswordToggle = this.handlePasswordToggle.bind(this);
+        this.handleChangePassword = this.handleChangePassword.bind(this);
     }
+
+
     componentDidMount() {
          this.props.user().then((r) => {
              this.setState({name: r.payload.name, email: r.payload.email, username: r.payload.username})
@@ -39,6 +42,16 @@ class Profile extends Component {
         this.setState({isEditing: true})
     }
 
+    handlePasswordToggle() {
+        this.setState({isPasswordChanged: true})
+    }
+
+    handleChangePassword(e) {
+        e.preventDefault();
+        //call change password action
+        this.setState({ isPasswordChanged: false})
+    }
+
     handleOnclick(event) {
         event.preventDefault();
 
@@ -46,11 +59,49 @@ class Profile extends Component {
     
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.updateUser(this.state);
+        this.setState({isEditing: false, isPasswordChanged: false})
+    }
+
     render() {
         const {userDetails} = this.props;
-        const updateUser = this.props.updateUser;
         let result;
-        if(this.state.isEditing) {
+
+        if(this.state.isPasswordChanged) {
+
+            result = <div className="profile-detail">
+            <div className="profile-row">
+                <label className="l">Password</label>
+                <input 
+                    className='i'
+                    type="password"
+                    name="newPassword"
+                    value={this.state.newPassword}
+                    onChange={this.handleOnchange}
+                    
+                />
+            </div>
+            <div className="profile-row">
+                <label className='l'>New Password</label>
+                <input
+                    className='i' 
+                    type="password"
+                    name="confirmPassword"
+                    value={this.state.confirmPassword}
+                    onChange={this.handleOnchange}
+
+                />
+            </div>
+            <div className="btn">
+                <button onClick={this.handleChangePassword} className="btn-primary">Confirmed</button>
+
+            </div>
+        </div>
+
+        }
+        else if(this.state.isEditing) {
 
 
             result = <div className="profile-detail">
@@ -86,7 +137,10 @@ class Profile extends Component {
                     onChange={this.handleOnchange}
                 />
             </div>
-            <button onClick={this.handleOnclick}>Save</button>
+            <div className="btn">
+                <button onClick={this.handleSubmit} className="btn-primary">Save</button>
+
+            </div>
         </div>
             
         }else {
@@ -140,7 +194,7 @@ class Profile extends Component {
                         <div className="profile-form">
                             <div className="profile-menu">
                                 <React.Fragment><button onClick={this.handleToggle} className="btn-primary">Edit</button></React.Fragment>
-                                <React.Fragment><button  className="btn-primary">Change Password</button></React.Fragment>
+                                <React.Fragment><button  onClick={this.handleChangePassword} className="btn-primary">Change Password</button></React.Fragment>
                             </div>
                             {result}
                         </div>

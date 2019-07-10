@@ -24,7 +24,7 @@ class Navigation extends Component {
                             <div className="Nav-link-left">
                                 <NavLink exact activeClassName="active-link" to="/" className="Link">Home
                                 </NavLink>
-                                <NavLink exact activeClassName="active-link" to="/books" className="Link">Books</NavLink>
+                                <NavLink exact activeClassName="active-link" to="/book/:id" className="Link">My Books</NavLink>
                             </div>
                         </React.Fragment>
         return(

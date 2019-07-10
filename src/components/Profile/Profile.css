@@ -43,7 +43,7 @@
     flex-direction: row;
     flex:1;
     justify-content: flex-end;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 .profile-detail {
     display: flex;
@@ -69,11 +69,9 @@ flex:2
     background-color: #20639B;
 }
 
-.changePassword {
-    width: 10em;
-}
-
-.edit {
-    width: 10em;
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
