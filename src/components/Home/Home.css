@@ -14,7 +14,6 @@
     position: relative;
     width: 15em;
     height: 20em;
-    border: 1px solid black;
     margin: 10px;
     z-index: 1;
     background: black;
@@ -30,7 +29,8 @@
 
 }
 .book-title {
-    color: white;
+    color: #20639B;
+    margin-left: 6px;
     font-size: 20px;
 }
 
@@ -64,41 +64,54 @@
 .book-details {
     display: flex;
     flex-direction: column;
-    /* border: 1px solid black; */
+    margin-left: 25%;
+    margin-right: 25%;
 }
 .book-heading {
-    border: 1px solid black;
     display: flex;
     justify-content: left;
-    margin: 10px;
 }
 .book-data {
     display: flex;
     flex-direction: row;
-    border: 1px solid black;
 }
 .book-cover {
     display: flex;
     justify-content: left;
-    margin: 5px;
-    flex: 5;
+    flex: 4;
 }
 .book-description {
     display: flex;
     flex-direction: column;
     justify-content: right;
-    border: 1px solid black;
-    flex: 50;
+    flex: 8;
 }
 .description {
     display: flex;
     flex-direction: row;
-    justify-content: right;
-    flex: 1;
-    margin: 20px;
-    padding: 10px;
+    flex: 4;
 }
-.price-options {
-    flex: 30;
+.add-to-cart {
+    flex: 1;
+    display: flex;
+    margin: 10px;
+    justify-content: flex-end;
+
+}
+.cart-btn {
+    background-color: #20639B;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.book-title {
+    margin-left: 6px;
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+.description-para {
+    text-align: left;
+    word-wrap: break-word;
 }
 

@@ -25,19 +25,22 @@ class BookDetails extends Component {
 
         return (
             <div className="book-details">
-                <div className="book-heading">
-                    <h1>{this.state.title}</h1>
-                </div>
+                
                 <div className="book-data">
                     <div className="book-cover">
                         <img className="book-image" src={require('./image.jpg')}/>
                     </div>
                     <div className="book-description">
-                        <div className="description">
-                            <p >{this.state.description}</p>
+                        <div className="book-heading">
+                            <h2 className="book-title">{this.state.title}</h2>
                         </div>
-                        <div className="price-options">
-                            <button>Add to Cart</button>
+                        <div className="description">
+                        {/* {this.state.description} */}
+                             <p className="description-para">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. 
+                             The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. </p>
+                        </div>
+                        <div className="add-to-cart">
+                            <button className="cart-btn">Add to Cart</button>
                         </div>
                     </div>
                 </div>
