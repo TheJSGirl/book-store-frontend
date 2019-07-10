@@ -16,7 +16,9 @@ class BookDetails extends Component {
 
     componentDidMount() {
         const {id} = this.props;
-        this.props.getBookById(id).then(({data}) => console.log(data))
+        this.props.getBookById(id).then(({data}) => {
+            this.setState({title: data.data.title, description: data.data.description})
+        })
     }
 
     render() {
@@ -24,7 +26,7 @@ class BookDetails extends Component {
         return (
             <div className="book-details">
                 <div className="book-heading">
-                    <h1>Book Title...</h1>
+                    <h1>{this.state.title}</h1>
                 </div>
                 <div className="book-data">
                     <div className="book-cover">
@@ -32,11 +34,7 @@ class BookDetails extends Component {
                     </div>
                     <div className="book-description">
                         <div className="description">
-                            <p >
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                             Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-                            Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. 
-                            </p>
+                            <p >{this.state.description}</p>
                         </div>
                         <div className="price-options">
                             <button>Add to Cart</button>
