@@ -20,7 +20,8 @@ function App() {
         <Route exact path="/logout" component={Logout}/>
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/" component={Home} />
-        <Route exact path="/book" component={Book} />
+        
+        <Route exact path="/book/:id" component={(routeProp) => <Book id={routeProp.match.params.id}/>} />
 
       </Switch>
       </BrowserRouter>

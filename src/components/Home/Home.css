@@ -93,6 +93,12 @@
 .description {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    flex: 10;
+    justify-content: right;
+    flex: 1;
+    margin: 20px;
+    padding: 10px;
 }
+.price-options {
+    flex: 30;
+}
+
