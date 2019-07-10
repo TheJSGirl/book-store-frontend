@@ -8,6 +8,7 @@ import Logout from './components/Logout';
 import Profile from './components/Profile/ProfilePage';
 import Home from './components/Home/HomePage';
 import Book  from './components/Home/BookDetail';
+import MyBook from './components/Home/MyBook';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <Route exact path="/logout" component={Logout}/>
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/" component={Home} />
-        
+        <Route exact path="/my-book" component={MyBook} />
         <Route exact path="/book/:id" component={(routeProp) => <Book id={routeProp.match.params.id}/>} />
 
       </Switch>
