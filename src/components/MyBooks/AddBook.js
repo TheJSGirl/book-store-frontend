@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Redirect} from 'react-router-dom';
 
 class AddBook extends Component {
 
@@ -8,13 +9,37 @@ class AddBook extends Component {
             title: '',
             price: '',
             authors: '',
-            description: ''
+            description: '',
+            isFormVisible: true,
         }
+        this.handleOnchange = this.handleOnchange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    handleOnchange(event) {
+        event.preventDefault();
+        this.setState({[event.target.name]: event.target.value})
+
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        const data = {
+            title: this.state.title,
+            price: this.state.price,
+            authors: this.state.authors,
+            description: this.state.description
+        }
+        this.props.addBook(data);  
+        this.setState({isFormVisible: false})
+        this.props.allBooks();
+    }
+
+
     render() {
-        return (
-            <div className="profile-detail">
+        const {isFormVisible} = this.state;
+        
+           let form =  <div className="profile-detail">
             <div className="profile-row">
                 <label className="l">Title</label>
                 <input 
@@ -42,7 +67,7 @@ class AddBook extends Component {
                 <input
                     className='i' 
                     type="text"
-                    name="confirmPassword"
+                    name="price"
                     value={this.state.price}
                     onChange={this.handleOnchange}
 
@@ -60,11 +85,13 @@ class AddBook extends Component {
                 />
             </div>
             <div className="btn">
-                <button onClick={this.handleChangePassword} className="btn-primary">Confirmed</button>
+                <button onClick={this.handleSubmit} className="btn-primary">Save</button>
 
             </div>
-        </div>
-        )
+        </div>;
+        return isFormVisible ? form : <Redirect to="/" />;
+
+        
     }
 
 }

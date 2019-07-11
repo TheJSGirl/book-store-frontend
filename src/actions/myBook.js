@@ -11,11 +11,10 @@ export function deleteMybook(id) {
     }
 }
 
-export function addBook(data) {
+export function addBook(body) {
     return (dispatch) => {
-        return axios.post(baseUrl, {
-            headers: {Authorization: `bearer ${localStorage.jwtToken}`},
-            body: data
-        }).then(e => dispatch(getBooks()))
+        return axios.post(baseUrl,body, {
+            headers: {Authorization: `bearer ${localStorage.jwtToken}`}
+        } ).then(e => dispatch(getBooks()))
     }
 }

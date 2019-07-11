@@ -25,11 +25,10 @@ class MyBook extends Component {
     handleAddBook() {
         console.log("hello")
         this.setState({showAddBook: true, showBooks: false})
-        
     }
 
     render() {
-        const {userData, books, allBooks, deleteMybook} = this.props;
+        const {userData, books, allBooks, deleteMybook, addBook} = this.props;
         let myBooks = [];
 
         const btn = <div>
@@ -60,7 +59,7 @@ class MyBook extends Component {
                 
             </div>: ''}
             {btn}
-            {this.state.showAddBook? <AddBook /> : ''}
+            {this.state.showAddBook? <AddBook addBook={addBook} allBooks={allBooks}/> : ''}
         </React.Fragment>
 
         )
