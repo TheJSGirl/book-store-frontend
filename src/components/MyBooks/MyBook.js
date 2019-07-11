@@ -39,6 +39,7 @@ class MyBook extends Component {
                 {myBooks.map(book => <Book data={book} key={book.id} delete={this.state.isDeleteVisible} edit={this.state.isEditVisible}
                  deleteMybook={deleteMybook} allBooks={allBooks}/>)}
             </div>
+            
         </div>)
     }
 }

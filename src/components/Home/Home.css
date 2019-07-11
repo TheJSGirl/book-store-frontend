@@ -109,7 +109,7 @@
     margin-bottom: 0px;
 }
 .book-title-sm {
-    color: #20639B;
+    color: white;
     margin-left: 6px;
     font-size: 20px;
 }
@@ -125,7 +125,6 @@ a {
   display: flex;
   flex-direction: row;  
   justify-content: center;
-
   flex-wrap: wrap;
 }
 .search {
