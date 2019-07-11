@@ -1,7 +1,7 @@
 .homePage {
     display: flex;
     flex-direction: column; 
-  flex-flow: column;
+    flex-flow: column;
     margin-top: 0%;
     margin-left: 10%;
     margin-right: 10%;
@@ -125,7 +125,6 @@ a {
 .my-book {
   display: flex;
   flex-direction: row;  
-  /* flex-flow: row; */
   justify-content: center;
 
   flex-wrap: wrap;
@@ -134,5 +133,8 @@ a {
     width: 50%;
     border-radius: 15px;
     border: 2px solid #20639B;
+}
+.mybook-btn{
+    margin-right: 3px;
 }
 
