@@ -15,10 +15,10 @@ class MyBook extends Component {
     componentDidMount() {
         this.props.allBooks();
     }
+    
 
     render() {
-        const {userData} = this.props;
-        const {books} = this.props;
+        const {userData, books, allBooks, deleteMybook} = this.props;
         let myBooks = [];
         if(userData.id ) {
               books && books.map((book) => {
@@ -36,7 +36,8 @@ class MyBook extends Component {
                 <input className="seach-myBook" />
             </div>
             <div className="myBook">
-                { myBooks.map(book => <Book data={book} key={book.id} delete={this.state.isDeleteVisible} edit={this.state.isEditVisible}/>)}
+                {myBooks.map(book => <Book data={book} key={book.id} delete={this.state.isDeleteVisible} edit={this.state.isEditVisible}
+                 deleteMybook={deleteMybook} allBooks={allBooks}/>)}
             </div>
         </div>)
     }

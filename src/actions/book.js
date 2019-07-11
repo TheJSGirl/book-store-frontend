@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {BOOKS} from './types';
 
-const baseUrl = 'http://localhost:3001/books'
+const baseUrl = 'http://localhost:3001/books';
 export function getBooks() {
     return dispatch => {
         return axios.get('http://localhost:3001/books?limit=100&skip=20', {

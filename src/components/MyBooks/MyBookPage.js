@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import MyBook from './MyBook';
 import {getBooks} from '../../actions/book';
 import {getUserdata} from '../../actions/profile';
+import {deleteMybook} from '../../actions/myBook';
 
 class MyBookPage extends Component {
 
@@ -11,10 +12,10 @@ class MyBookPage extends Component {
     }
 
     render() {
-        const {getBooks, getUserdata} = this.props;
+        const {getBooks, getUserdata, deleteMybook} = this.props;
         const {books, user} = this.props.data;
         return (
-            <MyBook books={books} allBooks={getBooks} userData={user}/>
+            <MyBook books={books} allBooks={getBooks} userData={user} deleteMybook={deleteMybook}/>
         )
     }
 
@@ -22,4 +23,4 @@ class MyBookPage extends Component {
 function mapStateToProps(data) {
     return data;
   }
-export default connect(mapStateToProps, {getBooks, getUserdata})(MyBookPage)
+export default connect(mapStateToProps, {getBooks, getUserdata, deleteMybook})(MyBookPage)

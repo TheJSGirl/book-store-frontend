@@ -16,12 +16,15 @@ class Book extends Component {
     showBook(id) {
         return  this.props.history.push(`/book/${id}`);
     }
+    handleDelete(id) {
+        this.props.deleteMybook(id);
+    }
     render() {
         const {_id} = this.props.data;
-        const {userData} = this.props;
+        const {userData, deleteMybook, getBooks} = this.props;
        return (
-            <div className="book"  style={{cursor: 'pointer'}} onClick={() => this.showBook(_id)}>
-               <div className="image">
+            <div className="book"  style={{cursor: 'pointer'}} >
+               <div className="image" onClick={() => this.showBook(_id)}>
                     <img className="book-image" src={require('./image.jpg')}/>
                </div>
                 <div className="book-footer">
@@ -31,13 +34,13 @@ class Book extends Component {
                     <div  className="book-element">
                        
                         {this.props.delete && this.props.edit?  (<div>
+                            <button className="cart mybook-btn" onClick={() => this.handleDelete(_id)}>
+                                <FontAwesomeIcon icon={faTrashAlt} size='1x'/>
+                            </button>
                             <button className="cart mybook-btn">
-                            <FontAwesomeIcon icon={faTrashAlt} size='1x'/>
-                        </button>
-                        <button className="cart mybook-btn">
-                        <FontAwesomeIcon icon={faEdit} size='1x'/>
-                    </button>
-                            </div>
+                                <FontAwesomeIcon icon={faEdit} size='1x'/>
+                            </button>
+                        </div>
 
                         )
                             :  <button className="cart">
