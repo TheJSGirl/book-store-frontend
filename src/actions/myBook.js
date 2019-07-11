@@ -1,5 +1,4 @@
 import axios from 'axios';
-import {DELETE_MYBOOK} from './types';
 import {getBooks} from './book';
 
 const baseUrl = 'http://localhost:3001/books';

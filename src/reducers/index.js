@@ -33,11 +33,7 @@ export default (state = initialState, action = {}) => {
                 ...state,
                 books: [...action.payload]
             }
-        case DELETE_MYBOOK: 
-            return {
-                ...state,
-                books: [...action.payload]
-            }
+    
 
         default: return state;
     }
