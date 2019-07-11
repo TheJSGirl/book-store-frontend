@@ -4,7 +4,7 @@ import {BOOKS} from './types';
 const baseUrl = 'http://localhost:3001/books';
 export function getBooks() {
     return dispatch => {
-        return axios.get('http://localhost:3001/books?limit=100&skip=10', {
+        return axios.get('http://localhost:3001/books', {
               headers: {Authorization: `bearer ${localStorage.jwtToken}`}
         }).then(({data})=> dispatch({type: BOOKS, payload: data.data}));
     }
