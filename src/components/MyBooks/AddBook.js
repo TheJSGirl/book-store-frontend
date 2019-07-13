@@ -11,6 +11,7 @@ class AddBook extends Component {
             author: '',
             description: '',
             isFormVisible: true,
+            showEditForm: true,
         }
         this.handleOnchange = this.handleOnchange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,7 +31,7 @@ class AddBook extends Component {
                 bookId: this.props.showForm.bookId
             }
             this.props.editBook(data)
-
+            this.setState({isFormVisible: false})
         } else {
             const data = {
                 title: this.state.title,
@@ -48,7 +49,8 @@ class AddBook extends Component {
             this.setState({title: this.props.showForm.book.title || '',
                 price: this.props.showForm.book.price || '',
                 description: this.props && this.props.book && this.props.book.description,
-                author: this.props.showForm.book.author || ''
+                author: this.props.showForm.book.author || '',
+                showEditForm: true
                 })
         }
      

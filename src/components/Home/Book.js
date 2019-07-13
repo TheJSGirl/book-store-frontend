@@ -15,7 +15,6 @@ class Book extends Component {
             price: this.props.data.price,
             author: this.props.data.author,
             showEdit: false,
-            showEditForm: false,
         }
 
     }
