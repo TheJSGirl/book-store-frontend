@@ -6,7 +6,7 @@ export function getBooks() {
     return dispatch => {
         return axios.get('http://localhost:3001/books', {
               headers: {Authorization: `bearer ${localStorage.jwtToken}`}
-        }).then(({data})=> dispatch({type: BOOKS, payload: data.data}));
+        }).then(({data})=>dispatch({type: BOOKS, payload: data.data}));
     }
 }
 

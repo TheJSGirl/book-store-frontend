@@ -8,7 +8,7 @@ class AddBook extends Component {
         this.state = {
             title: '',
             price: '',
-            authors: '',
+            author: '',
             description: '',
             isFormVisible: true,
         }
@@ -27,7 +27,7 @@ class AddBook extends Component {
         const data = {
             title: this.state.title,
             price: this.state.price,
-            authors: this.state.authors,
+            author: this.state.author,
             description: this.state.description
         }
         this.props.addBook(data);  
@@ -78,8 +78,8 @@ class AddBook extends Component {
                 <input
                     className='i' 
                     type="text"
-                    name="authors"
-                    value={this.state.authors}
+                    name="author"
+                    value={this.state.author}
                     onChange={this.handleOnchange}
 
                 />

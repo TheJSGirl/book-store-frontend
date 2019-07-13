@@ -10,14 +10,16 @@ class MyBookPage extends Component {
     constructor(props) {
         super(props);
     }
-
+    componentDidMount() {
+        this.props.getBooks();
+    }
     render() {
         const {getBooks, getUserdata, deleteMybook, addBook} = this.props;
-        const {books, user} = this.props.data;
+        const {bookInfo, user} = this.props.data;
         
         return (
             <React.Fragment>
-                <MyBook books={books} allBooks={getBooks} userData={user} deleteMybook={deleteMybook} addBook={addBook}/>
+                {bookInfo && <MyBook books={bookInfo.books} allBooks={getBooks} userData={user} deleteMybook={deleteMybook} addBook={addBook}/>}
             </React.Fragment>
         )
     }

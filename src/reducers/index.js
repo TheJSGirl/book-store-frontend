@@ -5,7 +5,7 @@ const initialState = {
     token:'',
     user: {},
     userDetails:{},
-    books: []
+    bookInfo: {}
 };
 export default (state = initialState, action = {}) => {
     switch(action.type) {
@@ -31,7 +31,7 @@ export default (state = initialState, action = {}) => {
         case BOOKS: 
             return {
                 ...state,
-                books: [...action.payload]
+                bookInfo: {books: action.payload.books, total: action.payload.total}, 
             }
     
 
