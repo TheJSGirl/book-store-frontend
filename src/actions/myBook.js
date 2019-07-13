@@ -25,3 +25,11 @@ export function showEditForm(data) {
         payload: data
     }
 }
+
+export function editBook(body) {
+    return (dispatch) => {
+        return axios.patch(baseUrl,body, {
+            headers: {Authorization: `bearer ${localStorage.jwtToken}`}
+        } ).then(e => dispatch(getBooks()))
+    }
+}
