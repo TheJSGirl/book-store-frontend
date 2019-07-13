@@ -29,3 +29,24 @@
     border-radius: 15px;
     border: 2px solid #20639B;  
 }
+.btn-primary {
+    background-color: #20639B;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.myBook-add-btn {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+    background: #20639B;
+    padding: 10px;
+    border-radius: 50%;
+    border: none;
+    font-size: 10px;
+
+}

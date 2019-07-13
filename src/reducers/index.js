@@ -1,11 +1,13 @@
-import {SET_CURRENT_USER, USER_DATA, UPDATED_DATA, BOOKS} from '../actions/types';
+import {SET_CURRENT_USER, USER_DATA, UPDATED_DATA, BOOKS, SHOW_EDIT_FORM } from '../actions/types';
 
 const initialState = {
     isAuthenticated: false,
     token:'',
     user: {},
     userDetails:{},
-    books: []
+    bookInfo: {},
+    showForm: {
+    }
 };
 export default (state = initialState, action = {}) => {
     switch(action.type) {
@@ -31,7 +33,17 @@ export default (state = initialState, action = {}) => {
         case BOOKS: 
             return {
                 ...state,
-                books: [...action.payload]
+                bookInfo: {books: action.payload.books, total: action.payload.total}, 
+            }
+        case SHOW_EDIT_FORM:
+            return {
+                ...state,
+                showForm: {
+                    book: action.payload.book,
+                    bookId: action.payload.bookId,
+                    showForm: action.payload.showForm,
+
+                }
             }
 
         default: return state;

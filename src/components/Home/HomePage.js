@@ -16,6 +16,11 @@ class HomePage extends Component {
         this.handleOnchange = this.handleOnchange.bind(this);
     }
 
+
+    componentDidMount() {
+        this.props.getBooks();
+    }
+
     handleOnchange(e) {
         e.preventDefault();
         this.setState({search:e.target.value});
@@ -23,8 +28,8 @@ class HomePage extends Component {
 
     render() {
         const {getBooks, getUserdata} = this.props;
-        const {books, user} = this.props.data;
 
+        const { user, bookInfo} = this.props.data;
        return (<div className="homePage">
     
                         <div className="search-bar">
@@ -36,7 +41,7 @@ class HomePage extends Component {
                                 />
                         </div>
                        
-                       <BookList books={books} allBooks={getBooks} userData={user}/>
+                       { bookInfo && <BookList books={bookInfo.books} allBooks={getBooks} userData={user}/>}
                        
                    
                 </div>)

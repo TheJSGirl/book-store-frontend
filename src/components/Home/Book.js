@@ -1,52 +1,74 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Redirect, Link} from 'react-router-dom';
-import {withRouter} from 'react-router-dom';
+import {Redirect, Link, withRouter } from 'react-router-dom';
 import './Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartPlus, faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons'
+import { faCartPlus, faTrashAlt, faEdit, faPrescriptionBottleAlt } from '@fortawesome/free-solid-svg-icons'
+import Edit from '../MyBooks/AddBook';
 
 class Book extends Component {
 
     constructor(props){
         super(props);
+        this.state = {
+            title: this.props.data.title,
+            price: this.props.data.price,
+            author: this.props.data.author,
+            showEdit: false,
+        }
 
     }
 
     showBook(id) {
         return  this.props.history.push(`/book/${id}`);
     }
+
+    handleDelete(id) {
+        this.props.deleteMybook(id);
+    }
+    handleEdit(id) {
+        const data = {
+            book: this.state,
+            bookId: id,
+           showForm: true,
+        }
+        this.props.showEditForm(data)
+    }
+
     render() {
         const {_id} = this.props.data;
-        const {userData} = this.props;
-       return (
-            <div className="book"  style={{cursor: 'pointer'}} onClick={() => this.showBook(_id)}>
-               <div className="image">
+        const {userData, deleteMybook, getBooks, showEditForm} = this.props;
+
+        const books =  <React.Fragment>
+            <div className="book"  style={{cursor: 'pointer'}} >
+                <div className="image" onClick={() => this.showBook(_id)}>
                     <img className="book-image" src={require('./image.jpg')}/>
-               </div>
-                <div className="book-footer">
-                    <div className="book-element">
-                      <p class="book-title-sm">{this.props.data.title}</p>
-                    </div>
-                    <div  className="book-element">
-                       
-                        {this.props.delete && this.props.edit?  (<div>
-                            <button className="cart mybook-btn">
-                            <FontAwesomeIcon icon={faTrashAlt} size='1x'/>
-                        </button>
-                        <button className="cart mybook-btn">
-                        <FontAwesomeIcon icon={faEdit} size='1x'/>
-                    </button>
-                            </div>
-
-                        )
-                            :  <button className="cart">
-                            <FontAwesomeIcon icon={faCartPlus} size='2x'/>
-                        </button>}
-                    </div>
                 </div>
-
-           </div>  
+            <div className="book-footer">
+                <div className="book-element">
+                <p class="book-title-sm">{this.props.data.title}</p>
+                </div>
+            <div  className="book-element">  
+                 {this.props.delete && this.props.edit ?  (<div>
+                     <button className="cart mybook-btn" onClick={() => this.handleDelete(_id)}>
+                         <FontAwesomeIcon icon={faTrashAlt} size='1x'/>
+                     </button>
+                     <button className="cart mybook-btn" onClick={() => this.handleEdit(_id)} >
+                         <FontAwesomeIcon icon={faEdit} size='1x'/>
+                     </button>
+                 </div>)
+                 :  <button className="cart">
+                     <FontAwesomeIcon icon={faCartPlus} size='2x'/>
+                 </button>}
+             </div>
+        </div>
+    </div>
+</React.Fragment>
+       return (
+           <React.Fragment>
+               {books}
+           </React.Fragment>
+           
        )
     }
 
