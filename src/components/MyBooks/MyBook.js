@@ -27,7 +27,7 @@ class MyBook extends Component {
     }
 
     render() {
-        const {userData, books, allBooks, deleteMybook, addBook, showEditForm} = this.props;
+        const {userData, books, allBooks, deleteMybook, addBook, showEditForm, editBook} = this.props;
         let myBooks = [];
 
         const btn = <div>
@@ -52,13 +52,15 @@ class MyBook extends Component {
                     <input className="seach-myBook" />
                 </div>
                  <div className="myBook">
-                    {myBooks.map(book => <Book data={book} key={book.id} showEditForm={showEditForm} delete={this.state.isDeleteVisible} edit={this.state.isEditVisible}
-                    deleteMybook={deleteMybook} allBooks={allBooks} />)}
-                </div>
-                
+                    {myBooks.map(book => <Book data={book} key={book.id} 
+                    showEditForm={showEditForm} delete={this.state.isDeleteVisible} 
+                    edit={this.state.isEditVisible}
+                    deleteMybook={deleteMybook} allBooks={allBooks} 
+                    />)}
+                </div> 
             </div>: ''}
             {btn}
-            {this.state.showAddBook? <AddBook addBook={addBook} allBooks={allBooks}/> : ''}
+            {this.state.showAddBook? <AddBook addBook={addBook} allBooks={allBooks} editBook={editBook}/> : ''}
         </React.Fragment>
 
         )

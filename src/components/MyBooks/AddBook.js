@@ -25,13 +25,18 @@ class AddBook extends Component {
     handleSubmit(e) {
         e.preventDefault();
         if(this.props.showForm) {
-            //dispatch action to edit form
+            const data = {
+                body: this.state,
+                bookId: this.props.showForm.bookId
+            }
+            this.props.editBook(data)
+
         } else {
             const data = {
                 title: this.state.title,
                 price: this.state.price,
                 author: this.state.author,
-                description: this.state.description
+                description: this.state.description,
             }
             this.props.addBook(data);
             this.setState({isFormVisible: false})
@@ -40,13 +45,11 @@ class AddBook extends Component {
     }
     componentDidMount() {
         if(this.props.showForm) {
-            console.log('---------', this.props.showForm.book)
             this.setState({title: this.props.showForm.book.title || '',
                 price: this.props.showForm.book.price || '',
                 description: this.props && this.props.book && this.props.book.description,
                 author: this.props.showForm.book.author || ''
                 })
-
         }
      
     }
@@ -55,7 +58,7 @@ class AddBook extends Component {
 
     render() {
         const {isFormVisible} = this.state;
-        const { showForm} = this.props;
+        const {editBook} = this.props;
         
            let form =  <div className="profile-detail">
             <div className="profile-row">

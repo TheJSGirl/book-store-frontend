@@ -40,7 +40,8 @@ export default (state = initialState, action = {}) => {
                 ...state,
                 showForm: {
                     book: action.payload.book,
-                    showForm: action.payload.showForm
+                    bookId: action.payload.bookId,
+                    showForm: action.payload.showForm,
 
                 }
             }

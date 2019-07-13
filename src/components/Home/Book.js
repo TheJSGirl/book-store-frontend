@@ -30,7 +30,8 @@ class Book extends Component {
     handleEdit(id) {
         const data = {
             book: this.state,
-            showForm: true
+            bookId: id,
+           showForm: true,
         }
         this.props.showEditForm(data)
     }
