@@ -24,20 +24,38 @@ class AddBook extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const data = {
-            title: this.state.title,
-            price: this.state.price,
-            author: this.state.author,
-            description: this.state.description
+        if(this.props.showForm) {
+            //dispatch action to edit form
+        } else {
+            const data = {
+                title: this.state.title,
+                price: this.state.price,
+                author: this.state.author,
+                description: this.state.description
+            }
+            this.props.addBook(data);
+            this.setState({isFormVisible: false})
+            this.props.allBooks();
         }
-        this.props.addBook(data);  
-        this.setState({isFormVisible: false})
-        this.props.allBooks();
     }
+    componentDidMount() {
+        if(this.props.showForm) {
+            console.log('---------', this.props.showForm.book)
+            this.setState({title: this.props.showForm.book.title || '',
+                price: this.props.showForm.book.price || '',
+                description: this.props && this.props.book && this.props.book.description,
+                author: this.props.showForm.book.author || ''
+                })
+
+        }
+     
+    }
+    
 
 
     render() {
         const {isFormVisible} = this.state;
+        const { showForm} = this.props;
         
            let form =  <div className="profile-detail">
             <div className="profile-row">
@@ -57,7 +75,7 @@ class AddBook extends Component {
                     className='i'
                     type="text"
                     name="description"
-                    value={this.state.description}
+                    value={this.state.description} 
                     onChange={this.handleOnchange}
                     
                 />

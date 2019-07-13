@@ -23,12 +23,11 @@ class MyBook extends Component {
     }
     
     handleAddBook() {
-        console.log("hello")
         this.setState({showAddBook: true, showBooks: false})
     }
 
     render() {
-        const {userData, books, allBooks, deleteMybook, addBook} = this.props;
+        const {userData, books, allBooks, deleteMybook, addBook, showEditForm} = this.props;
         let myBooks = [];
 
         const btn = <div>
@@ -53,8 +52,8 @@ class MyBook extends Component {
                     <input className="seach-myBook" />
                 </div>
                  <div className="myBook">
-                    {myBooks.map(book => <Book data={book} key={book.id} delete={this.state.isDeleteVisible} edit={this.state.isEditVisible}
-                    deleteMybook={deleteMybook} allBooks={allBooks}/>)}
+                    {myBooks.map(book => <Book data={book} key={book.id} showEditForm={showEditForm} delete={this.state.isDeleteVisible} edit={this.state.isEditVisible}
+                    deleteMybook={deleteMybook} allBooks={allBooks} />)}
                 </div>
                 
             </div>: ''}

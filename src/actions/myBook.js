@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {getBooks} from './book';
-
+import {SHOW_EDIT_FORM} from './types';
 const baseUrl = 'http://localhost:3001/books';
 
 export function deleteMybook(id) {
@@ -16,5 +16,12 @@ export function addBook(body) {
         return axios.post(baseUrl,body, {
             headers: {Authorization: `bearer ${localStorage.jwtToken}`}
         } ).then(e => dispatch(getBooks()))
+    }
+}
+
+export function showEditForm(data) {
+    return {
+        type: SHOW_EDIT_FORM,
+        payload: data
     }
 }
