@@ -31,7 +31,6 @@ class Profile extends Component {
         
     }
 
-
     handleOnchange(e) {
         e.preventDefault();
         this.setState({[e.target.name]: e.target.value});
@@ -187,7 +186,6 @@ class Profile extends Component {
                     </div>  
 
                     <div className="profile-info">
-
                         <div className="profile-image">
                             <img  className="image" src={require('./image.jpg')} />
                         </div>
@@ -209,6 +207,6 @@ class Profile extends Component {
 // export default Profile;
 function mapStateToProps(data) {
     return data;
-  }
+}
 
 export default connect(mapStateToProps)(Profile);
