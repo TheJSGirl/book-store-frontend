@@ -11,19 +11,27 @@ class HomePage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            search: ''
+            search: '',
+            books: []
         }
         this.handleOnchange = this.handleOnchange.bind(this);
     }
 
 
     componentDidMount() {
-        this.props.getBooks();
+        this.props.getBooks().then(e => this.setState({books: e.payload.books }))
     }
 
     handleOnchange(e) {
         e.preventDefault();
-        this.setState({search:e.target.value});
+        this.setState({search:e.target.value}, () => {
+            return this.state.books.filter((book) =>{
+                if(book.title === this.state.search) {
+                    return book;
+                }
+            })
+            
+        });
     }
 
     render() {
@@ -41,7 +49,7 @@ class HomePage extends Component {
                                 />
                         </div>
                        
-                       { bookInfo && <BookList books={bookInfo.books} allBooks={getBooks} userData={user}/>}
+                       { bookInfo && <BookList books={this.state.books} allBooks={getBooks} userData={user}/>}
                        
                    
                 </div>)
