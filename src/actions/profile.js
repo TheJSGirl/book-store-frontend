@@ -1,10 +1,10 @@
 import axios from 'axios';
 import {USER_DATA,  UPDATED_DATA} from './types'
+import {userServiceUrl} from '../constants';
 
-const baseUrl = 'http://localhost:3000/users/'
 export function getUserdata() {
     return dispatch => {
-        return axios.get(baseUrl, {
+        return axios.get(userServiceUrl, {
               headers: {Authorization: `bearer ${localStorage.jwtToken}`}
         }).then(({data})=> dispatch({type: USER_DATA, payload: data.data}));
     }
@@ -12,7 +12,7 @@ export function getUserdata() {
 
 export function updateUser(data) {
     return dispatch => {
-        return axios.patch(baseUrl,{
+        return axios.patch(userServiceUrl,{
             headers:{
                 Authorization: `bearer ${localStorage.jwtToken}`
             },

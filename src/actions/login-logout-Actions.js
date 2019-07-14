@@ -1,6 +1,7 @@
 import axios from 'axios';
 import  setAuthorization from '../utils';
 import {authAction} from './authActions';
+import {userServiceUrl} from '../constants';
 
 
 export function logout() {
@@ -14,7 +15,7 @@ export function logout() {
 
 export function login(userData) {
     return dispatch => {
-        return axios.post('http://localhost:3000/users/signIn', userData);
+        return axios.post(`${userServiceUrl}/signIn`, userData);
     }
 
 }
