@@ -35,7 +35,6 @@ export default (state = initialState, action = {}) => {
                 bookInfo: {books: action.payload.books, total: action.payload.total}, 
             }
         case SHOW_EDIT_FORM:
-            console.log('form-------------', action.payload)
             return {
                 ...state,
                 showForm: {
