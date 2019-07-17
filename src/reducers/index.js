@@ -6,8 +6,7 @@ const initialState = {
     user: {},
     userDetails:{},
     bookInfo: {},
-    showForm: {
-    }
+    showForm: {}
 };
 export default (state = initialState, action = {}) => {
     switch(action.type) {
@@ -36,6 +35,7 @@ export default (state = initialState, action = {}) => {
                 bookInfo: {books: action.payload.books, total: action.payload.total}, 
             }
         case SHOW_EDIT_FORM:
+            console.log('form-------------', action.payload)
             return {
                 ...state,
                 showForm: {

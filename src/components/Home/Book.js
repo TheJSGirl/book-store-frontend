@@ -14,7 +14,7 @@ class Book extends Component {
             title: this.props.data.title,
             price: this.props.data.price,
             author: this.props.data.author,
-            showEdit: false,
+            showEdit: true,
         }
 
     }
@@ -32,12 +32,14 @@ class Book extends Component {
             bookId: id,
            showForm: true,
         }
-        this.props.showEditForm(data)
+        this.props.showEditForm(data);
     }
-
+    
     render() {
         const {_id} = this.props.data;
-        const {userData, deleteMybook, getBooks, showEditForm} = this.props;
+        console.log('----', this.props.allBooks)
+        const {userData, deleteMybook, getBooks, showEditForm, allBooks} = this.props;
+        console.log('-----=====', allBooks)
 
         const books =  <React.Fragment>
             <div className="book"  style={{cursor: 'pointer'}} >

@@ -20,10 +20,20 @@ export function addBook(body) {
     }
 }
 
+
+export function myBook() {
+    return (dispatch) => {
+        return axios.get(`${bookServiceUrl}`, {
+            headers: {Authorization: `bearer ${localStorage.jwtToken}`}
+        } ).then(e => dispatch(getBooks()))
+    }
+}
+
 export function showEditForm(data) {
     return {
         type: SHOW_EDIT_FORM,
-        payload: data
+        payload: data,
+
     }
 }
 

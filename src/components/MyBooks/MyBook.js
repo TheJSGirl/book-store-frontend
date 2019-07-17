@@ -12,14 +12,11 @@ class MyBook extends Component {
             isDeleteVisible :true,
             isEditVisible: true,
             showAddBook: false,
-            showBooks: true
+            showBooks: true,
+            myBooks:[],
          
         }
         this.handleAddBook = this.handleAddBook.bind(this);
-    }
-    
-    componentDidMount() {
-        this.props.allBooks();
     }
     
     handleAddBook() {
@@ -28,40 +25,30 @@ class MyBook extends Component {
 
     render() {
         const {userData, books, allBooks, deleteMybook, addBook, showEditForm, editBook} = this.props;
-        let myBooks = [];
-
         const btn = <div>
             <button className="myBook-add-btn" onClick={this.handleAddBook} >
             <FontAwesomeIcon icon={faPlus} color="white" size='3x'/>
             </button>
         </div>
-        if(userData.id ) {
-              books && books.map((book) => {
-                if(book.user === userData.id) {
-                    myBooks.push(book);
-                    return myBooks;
-                }
-
-            })
-        }
+    
 
         return (
         <React.Fragment>
-            {this.state.showBooks ? <div className="myBooks">
+            { <div className="myBooks">
                 <div className="search-box">
                     <input className="seach-myBook" />
                 </div>
                  <div className="myBook">
-                    {myBooks.map(book => <Book data={book} key={book.id} 
+                    {books.map(book => <Book data={book} key={book.id} 
                     showEditForm={showEditForm} delete={this.state.isDeleteVisible} 
                     edit={this.state.isEditVisible}
                     deleteMybook={deleteMybook} allBooks={allBooks} 
                     />)}
                 </div> 
-            </div>: ''}
+            </div>}
             {btn}
             {this.state.showAddBook? <AddBook addBook={addBook} allBooks={allBooks} editBook={editBook}/> : ''}
-        </React.Fragment>
+        </React.Fragment>   
 
         )
     }
