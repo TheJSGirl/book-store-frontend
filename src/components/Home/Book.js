@@ -13,6 +13,7 @@ class Book extends Component {
             title: this.props.data.title,
             price: this.props.data.price,
             author: this.props.data.author,
+            description: this.props.data.description,
             showEdit: true,
         }
 

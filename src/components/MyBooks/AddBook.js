@@ -45,9 +45,10 @@ class AddBook extends Component {
     }
     componentDidMount() {
         if(this.props.showForm) {
+            console.log(this.props.showForm.book.description)
             this.setState({title: this.props.showForm.book.title || '',
                 price: this.props.showForm.book.price || '',
-                description: this.props && this.props.book && this.props.book.description,
+                description: this.props.showForm && this.props.showForm.book && this.props.showForm.book.description,
                 author: this.props.showForm.book.author || '',
                 })
         }

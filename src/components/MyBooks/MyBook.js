@@ -13,11 +13,31 @@ class MyBook extends Component {
             isEditVisible: true,
             showAddBook: false,
             showBooks: true,
-            myBooks:[],
+            books: this.props.books,
+            query: ''
          
         }
         this.handleAddBook = this.handleAddBook.bind(this);
         this.handleToggle = this.handleToggle.bind(this);
+        this.handleOnchange = this.handleOnchange.bind(this);
+    }
+
+    handleOnchange(e) {
+        e.preventDefault();
+        let filteredBooks = [];
+        this.setState({search:e.target.value}, () => {
+            filteredBooks = this.state.books.filter((book) =>{
+                if(book.title.match(new RegExp(`${this.state.search}`, 'ig'))) {
+                    return book;
+                }
+            });
+             if(this.state.books.length <= 0 || !this.state.search) {
+                 this.props.books.map(e => this.setState({books: e}))
+                this.props.allBooks().then(e => this.setState({books: e.payload.books }))
+             }
+             this.setState({ books: filteredBooks });
+        });
+
     }
     
     handleAddBook() {
@@ -29,7 +49,8 @@ class MyBook extends Component {
     }
 
     render() {
-        const {userData, books, allBooks, deleteMybook, addBook, showEditForm, editBook, toggleEditForm, toggleForm} = this.props;
+        const {userData, allBooks, deleteMybook, addBook, showEditForm, editBook, toggleEditForm, toggleForm} = this.props;
+        const { books } = this.state;
         const btn = <div>
             <button className="myBook-add-btn" onClick={this.handleAddBook} >
                 <FontAwesomeIcon icon={faPlus} color="white" size='3x'/>
@@ -41,7 +62,13 @@ class MyBook extends Component {
         <React.Fragment>
             {this.state.showBooks && <div className="myBooks">
                 <div className="search-box">
-                    <input className="seach-myBook" />
+                    <input 
+                        className="seach-myBook"
+                        name="search"
+                        value={this.state.search}
+                        onChange={this.handleOnchange}
+                    
+                    />
                 </div>
                  <div className="myBook">
                     {books.map(book => <Book data={book} key={book.id} 
