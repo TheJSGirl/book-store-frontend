@@ -24,14 +24,19 @@ class HomePage extends Component {
 
     handleOnchange(e) {
         e.preventDefault();
+        let filteredBooks = [];
         this.setState({search:e.target.value}, () => {
-            return this.state.books.filter((book) =>{
-                if(book.title === this.state.search) {
+            filteredBooks = this.state.books.filter((book) =>{
+                if(book.title.match(new RegExp(`${this.state.search}`, 'ig'))) {
                     return book;
                 }
-            })
-            
+            });
+             if(this.state.books.length <= 0 || !this.state.search) {
+                this.props.getBooks().then(e => this.setState({books: e.payload.books }))
+             }
+             this.setState({ books: filteredBooks });
         });
+       
     }
 
     render() {
