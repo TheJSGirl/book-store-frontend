@@ -35,9 +35,10 @@ class MyBookPage extends Component {
         return (
             <React.Fragment>
 
-              {showForm && this.state.toggle && <Edit showForm={showForm} editBook={editBook} toggleForm={this.toggleForm}/>}
+              {showForm && this.state.toggle && <Edit showForm={showForm} editBook={editBook} allBooks={getBooks}  toggleForm={this.toggleForm}/>}
 
-              {(!this.state.toggle || !showForm )&&( this.state.book.length ? this.state.book.length : '' )  && this.state.showBooks && <MyBook books={this.state.book} allBooks={getBooks} 
+              {(!this.state.toggle || !showForm ) && ( this.state.book.length ? this.state.book.length : '' )  
+              && this.state.showBooks && <MyBook books={this.state.book} allBooks={getBooks} 
         
                 deleteMybook={deleteMybook} addBook={addBook}
                 getUserData = {getUserdata}
