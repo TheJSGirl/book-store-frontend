@@ -8,7 +8,11 @@ export function deleteMybook(id) {
     return (dispatch) => {
         return axios.delete(`${bookServiceUrl}/${id}`, {
             headers: {Authorization: `bearer ${localStorage.jwtToken}`}
-        }).then(e => dispatch(getBooks()))
+        }).then(e => {
+            dispatch(getBooks())
+            return window.location.href ='/my-book'
+        }
+        )
     }
 }
 
@@ -41,6 +45,11 @@ export function editBook(data) {
     return (dispatch) => {
         return axios.patch(`${bookServiceUrl}/${data.bookId}`,data.body, {
             headers: {Authorization: `bearer ${localStorage.jwtToken}`}
-        } ).then(e => dispatch(getBooks()))
+        } ).then(e => {
+            dispatch(getBooks())
+            return window.location.href ='/my-book';
+        }
+            
+        )
     }
 }

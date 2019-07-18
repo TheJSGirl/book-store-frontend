@@ -26,6 +26,7 @@ class Book extends Component {
         this.props.deleteMybook(id);
 
     }
+
     handleEdit(id) {
         const data = {
             book: this.state,
@@ -33,7 +34,6 @@ class Book extends Component {
            showForm: true,
         }
         this.props.showEditForm(data);
-        // this.props.toggleEditForm();
     }
     
     render() {
