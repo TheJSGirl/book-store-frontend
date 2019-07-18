@@ -1,10 +1,10 @@
 import axios from 'axios';
 import {BOOKS} from './types';
+import {bookServiceUrl} from '../constants';
 
-const baseUrl = 'http://localhost:3001/books';
 export function getBooks() {
     return dispatch => {
-        return axios.get('http://localhost:3001/books', {
+        return axios.get(bookServiceUrl, {
               headers: {Authorization: `bearer ${localStorage.jwtToken}`}
         }).then(({data})=>dispatch({type: BOOKS, payload: data.data}));
     }
@@ -12,7 +12,7 @@ export function getBooks() {
 
 export function getBookById(id) {
     return dispatch => {
-        return axios.get(`${baseUrl}/${id}`, {
+        return axios.get(`${bookServiceUrl}/${id}`, {
               headers: {Authorization: `bearer ${localStorage.jwtToken}`}
         });
     }

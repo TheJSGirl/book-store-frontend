@@ -4,7 +4,6 @@ import {Redirect, Link, withRouter } from 'react-router-dom';
 import './Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartPlus, faTrashAlt, faEdit, faPrescriptionBottleAlt } from '@fortawesome/free-solid-svg-icons'
-import Edit from '../MyBooks/AddBook';
 
 class Book extends Component {
 
@@ -14,7 +13,7 @@ class Book extends Component {
             title: this.props.data.title,
             price: this.props.data.price,
             author: this.props.data.author,
-            showEdit: false,
+            showEdit: true,
         }
 
     }
@@ -25,19 +24,21 @@ class Book extends Component {
 
     handleDelete(id) {
         this.props.deleteMybook(id);
+
     }
+
     handleEdit(id) {
         const data = {
             book: this.state,
             bookId: id,
            showForm: true,
         }
-        this.props.showEditForm(data)
+        this.props.showEditForm(data);
     }
-
+    
     render() {
         const {_id} = this.props.data;
-        const {userData, deleteMybook, getBooks, showEditForm} = this.props;
+        const {userData, deleteMybook, getBooks, showEditForm, allBooks} = this.props;
 
         const books =  <React.Fragment>
             <div className="book"  style={{cursor: 'pointer'}} >

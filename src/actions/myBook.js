@@ -1,19 +1,33 @@
 import axios from 'axios';
 import {getBooks} from './book';
 import {SHOW_EDIT_FORM} from './types';
-const baseUrl = 'http://localhost:3001/books';
+import {bookServiceUrl} from '../constants';
+
 
 export function deleteMybook(id) {
     return (dispatch) => {
-        return axios.delete(`${baseUrl}/${id}`, {
+        return axios.delete(`${bookServiceUrl}/${id}`, {
             headers: {Authorization: `bearer ${localStorage.jwtToken}`}
-        }).then(e => dispatch(getBooks()))
+        }).then(e => {
+            dispatch(getBooks())
+            return window.location.href ='/my-book'
+        }
+        )
     }
 }
 
 export function addBook(body) {
     return (dispatch) => {
-        return axios.post(baseUrl,body, {
+        return axios.post(bookServiceUrl, body, {
+            headers: {Authorization: `bearer ${localStorage.jwtToken}`}
+        } ).then(e => dispatch(getBooks()))
+    }
+}
+
+
+export function myBook() {
+    return (dispatch) => {
+        return axios.get(`${bookServiceUrl}`, {
             headers: {Authorization: `bearer ${localStorage.jwtToken}`}
         } ).then(e => dispatch(getBooks()))
     }
@@ -22,14 +36,20 @@ export function addBook(body) {
 export function showEditForm(data) {
     return {
         type: SHOW_EDIT_FORM,
-        payload: data
+        payload: data,
+
     }
 }
 
 export function editBook(data) {
     return (dispatch) => {
-        return axios.patch(`${baseUrl}/${data.bookId}`,data.body, {
+        return axios.patch(`${bookServiceUrl}/${data.bookId}`,data.body, {
             headers: {Authorization: `bearer ${localStorage.jwtToken}`}
-        } ).then(e => dispatch(getBooks()))
+        } ).then(e => {
+            dispatch(getBooks())
+            return window.location.href ='/my-book';
+        }
+            
+        )
     }
 }

@@ -10,6 +10,7 @@ class BookDetails extends Component {
         this.state = {
             title:'',
             description:'',
+            price:''
 
         }
     }
@@ -17,7 +18,7 @@ class BookDetails extends Component {
     componentDidMount() {
         const {id} = this.props;
         this.props.getBookById(id).then(({data}) => {
-            this.setState({title: data.data.title, description: data.data.description})
+            this.setState({title: data.data.title, description: data.data.description, price: data.data.price})
         })
     }
 
@@ -35,9 +36,10 @@ class BookDetails extends Component {
                             <h2 className="book-title-lg">{this.state.title}</h2>
                         </div>
                         <div className="description">
-                        {/* {this.state.description} */}
-                             <p className="description-para">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. 
-                             The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book. </p>
+                             <p className="description-para">{this.state.description}</p>
+                        </div>
+                        <div className="description">
+                            Price: {this.state.price}
                         </div>
                         <div className="add-to-cart">
                             <button className="cart-btn">Add to Cart</button>

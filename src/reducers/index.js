@@ -6,8 +6,7 @@ const initialState = {
     user: {},
     userDetails:{},
     bookInfo: {},
-    showForm: {
-    }
+    showForm: {}
 };
 export default (state = initialState, action = {}) => {
     switch(action.type) {
