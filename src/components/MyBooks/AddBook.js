@@ -11,7 +11,6 @@ class AddBook extends Component {
             author: '',
             description: '',
             isFormVisible: true,
-            showEditForm: true,
         }
         this.handleOnchange = this.handleOnchange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,7 +30,7 @@ class AddBook extends Component {
                 bookId: this.props.showForm.bookId
             }
             this.props.editBook(data)
-            this.setState({isFormVisible: false})
+            this.props.toggleForm();
         } else {
             const data = {
                 title: this.state.title,
@@ -40,8 +39,9 @@ class AddBook extends Component {
                 description: this.state.description,
             }
             this.props.addBook(data);
-            this.setState({isFormVisible: false})
+            // this.setState({isFormVisible: false})
             this.props.allBooks();
+            this.props.handleToggle();
         }
     }
     componentDidMount() {
@@ -50,7 +50,6 @@ class AddBook extends Component {
                 price: this.props.showForm.book.price || '',
                 description: this.props && this.props.book && this.props.book.description,
                 author: this.props.showForm.book.author || '',
-                showEditForm: true
                 })
         }
      
@@ -60,8 +59,7 @@ class AddBook extends Component {
 
     render() {
         const {isFormVisible} = this.state;
-        const {editBook} = this.props;
-        
+        const {editBook} = this.props;        
            let form =  <div className="profile-detail">
             <div className="profile-row">
                 <label className="l">Title</label>
@@ -112,7 +110,7 @@ class AddBook extends Component {
 
             </div>
         </div>;
-        return isFormVisible ? form : <Redirect to="/" />;
+        return isFormVisible && form;
 
         
     }

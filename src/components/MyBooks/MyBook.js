@@ -17,24 +17,29 @@ class MyBook extends Component {
          
         }
         this.handleAddBook = this.handleAddBook.bind(this);
+        this.handleToggle = this.handleToggle.bind(this);
     }
     
     handleAddBook() {
         this.setState({showAddBook: true, showBooks: false})
     }
 
+    handleToggle() {
+        this.setState({showAddBook: false, showBooks: true})
+    }
+
     render() {
-        const {userData, books, allBooks, deleteMybook, addBook, showEditForm, editBook} = this.props;
+        const {userData, books, allBooks, deleteMybook, addBook, showEditForm, editBook, toggleEditForm, toggleForm} = this.props;
         const btn = <div>
             <button className="myBook-add-btn" onClick={this.handleAddBook} >
-            <FontAwesomeIcon icon={faPlus} color="white" size='3x'/>
+                <FontAwesomeIcon icon={faPlus} color="white" size='3x'/>
             </button>
         </div>
     
 
         return (
         <React.Fragment>
-            { <div className="myBooks">
+            {this.state.showBooks && <div className="myBooks">
                 <div className="search-box">
                     <input className="seach-myBook" />
                 </div>
@@ -43,11 +48,13 @@ class MyBook extends Component {
                     showEditForm={showEditForm} delete={this.state.isDeleteVisible} 
                     edit={this.state.isEditVisible}
                     deleteMybook={deleteMybook} allBooks={allBooks} 
+                    toggleEditForm={toggleEditForm}
                     />)}
                 </div> 
             </div>}
             {btn}
-            {this.state.showAddBook? <AddBook addBook={addBook} allBooks={allBooks} editBook={editBook}/> : ''}
+            {this.state.showAddBook && <AddBook addBook={addBook} allBooks={allBooks}
+             editBook={editBook} handleToggle={this.handleToggle}/>}
         </React.Fragment>   
 
         )

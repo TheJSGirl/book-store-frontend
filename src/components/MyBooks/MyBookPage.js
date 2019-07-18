@@ -12,10 +12,19 @@ class MyBookPage extends Component {
         super(props);
         this.state = {
             showBooks: true,
-            book: []
+            book: [],
+            toggle: true
         }
+        this.toggleForm = this.toggleForm.bind(this);
+        this.toggleEditForm = this.toggleEditForm.bind(this);
     }
 
+    toggleForm() {
+        this.setState({toggle: false , showBooks: true})
+    }
+    toggleEditForm() {
+        this.setState({toggle: true, showBooks: false})
+    }
     componentDidMount() {
         this.props.myBook().then(e => this.setState({book: e.payload.books}))
     }
@@ -26,14 +35,16 @@ class MyBookPage extends Component {
         return (
             <React.Fragment>
 
-              {showForm && <Edit showForm={showForm} editBook={editBook}/>}
+              {showForm && this.state.toggle && <Edit showForm={showForm} editBook={editBook} toggleForm={this.toggleForm}/>}
 
-              {!showForm && this.state.book.length  && this.state.showBooks && <MyBook books={this.state.book} allBooks={getBooks} 
+              {(!this.state.toggle || !showForm )&&( this.state.book.length ? this.state.book.length : '' )  && this.state.showBooks && <MyBook books={this.state.book} allBooks={getBooks} 
         
                 deleteMybook={deleteMybook} addBook={addBook}
                 getUserData = {getUserdata}
                 myBook={myBook}
                 showEditForm={showEditForm}
+                toggleForm={this.toggleForm}
+                toggleEditForm={this.toggleEditForm}
                />
               }
             </React.Fragment>
