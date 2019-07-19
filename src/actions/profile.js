@@ -12,12 +12,10 @@ export function getUserdata() {
 
 export function updateUser(data) {
     return dispatch => {
-        return axios.patch(userServiceUrl,{
+        return axios.patch(userServiceUrl,data ,{
             headers:{
                 Authorization: `bearer ${localStorage.jwtToken}`
-            },
-            body:data
-        
+            }
         }).then((res) => dispatch({
             type: UPDATED_DATA,
             payload: res

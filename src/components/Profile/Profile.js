@@ -14,7 +14,10 @@ class Profile extends Component {
             newPassword: '',
             confirmPassword: '',
             isEditing : false,
-            isPasswordChanged: false
+            isPasswordChanged: false,
+            editedState: {
+                
+            }
         }
         this.handleOnchange = this.handleOnchange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
