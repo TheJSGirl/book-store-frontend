@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import BookList from './BookList';
 import {connect} from 'react-redux';
 import {getBooks} from '../../actions/book';
-import {getUserdata} from '../../actions/profile';
 import './Home.css';
 
 
@@ -40,7 +39,7 @@ class HomePage extends Component {
     }
 
     render() {
-        const {getBooks, getUserdata} = this.props;
+        const {getBooks} = this.props;
 
         const { user, bookInfo} = this.props.data;
        return (<div className="homePage">

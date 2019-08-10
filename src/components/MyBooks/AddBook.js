@@ -31,6 +31,7 @@ class AddBook extends Component {
             this.props.editBook(data)
             this.props.allBooks();
             this.props.toggleForm();
+            window.location.reload();
         } else {
             const data = {
                 title: this.state.title,
@@ -41,11 +42,11 @@ class AddBook extends Component {
             this.props.addBook(data);
             this.props.allBooks();
             this.props.handleToggle();
+            window.location.reload();
         }
     }
     componentDidMount() {
         if(this.props.showForm) {
-            console.log(this.props.showForm.book.description)
             this.setState({title: this.props.showForm.book.title || '',
                 price: this.props.showForm.book.price || '',
                 description: this.props.showForm && this.props.showForm.book && this.props.showForm.book.description,

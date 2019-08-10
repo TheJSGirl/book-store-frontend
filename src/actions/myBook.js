@@ -10,7 +10,7 @@ export function deleteMybook(id) {
             headers: {Authorization: `bearer ${localStorage.jwtToken}`}
         }).then(e => {
             dispatch(getBooks())
-            return window.location.href ='/my-book'
+            return window.location.reload()
         }
         )
     }
@@ -45,11 +45,6 @@ export function editBook(data) {
     return (dispatch) => {
         return axios.patch(`${bookServiceUrl}/${data.bookId}`,data.body, {
             headers: {Authorization: `bearer ${localStorage.jwtToken}`}
-        } ).then(e => {
-            dispatch(getBooks())
-            return window.location.href ='/my-book';
-        }
-            
-        )
+        } ).then(e => dispatch(getBooks()))
     }
 }
