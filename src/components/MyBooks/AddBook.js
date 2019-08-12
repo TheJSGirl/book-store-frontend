@@ -41,6 +41,11 @@ class AddBook extends Component {
                 isValidField = false
             }
         }
+        if(event.target.name === 'description') {
+            if(!stringRegex.test(event.target.value)) {
+                isValidField = false
+            }
+        }
 
         event.preventDefault();
         this.setState({[event.target.name]: {value:event.target.value,isValid:isValidField,message:this.state[event.target.name].message}})
